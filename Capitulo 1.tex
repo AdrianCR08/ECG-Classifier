@@ -1,0 +1,173 @@
+\chapter{Introducción}
+\label{chap:intro}
+El presente capítulo tiene como propósito abordar la problemática a resolver, se desarrollan los antecedentes, planteamiento del problema mediante la formulación de preguntas, 
+objetivos e hipótesis, así mismo, se añade la relevancia de dicho enfoque que se pretende luego de realizar una investigación en diversas fuentes confiables (artículos, tesis, patentes y libros)
+abordando la justificación y sus impactos, finalmente se presenta el alcance y limitaciones, declarando los requerimientos, restricciones y magnitud  del proyecto.
+
+\section{Antecedentes y contexto del problema}
+\label{sec:background}
+
+Las enfermedades cardiovasculares son perturbaciones del corazón y de los vasos sanguíneos\citep{bib7}. Desde hace un tiempo dichas enfermedades han mostrado un crecimiento en México radical provocando grandes cantidades de defunciones por tal motivo se pretende la creación de un sistema embebido mediante el cual se obtengan señales cardíacas y posteriormente estas puedan ser analizadas con algún algoritmo de IA previamente entrenado para poder predecir este tipo de enfermedades y contribuir a la prevención y un tratamiento efectivo. 
+
+Son escasos los proyectos desarrollados con este enfoque, creación de sistema embebido para analizar señales ECG. Uno de estos, es un microsistema electrónico económico que permite adquirir señales ECG nombrado CARDIOCEL, de forma remota para transmitirlas mediante línea telefónica y ser almacenadas, procesadas y proyectadas en un computador personal. Se tiene como propuesta de mejora de visualización más de una señal y cambiar el tipo de comunicación inalámbrica \citep{bib2}. Otra propuesta destacada es el diseño e implementación de un sistema de monitoreo de electrocardiograma (ECG) de bajo costo utilizando Arduino y smartphone \citep{bib12}. A su vez \citep{bib7} hace uso de modelos predictivos para evaluar las enfermedades cardiovasculares más frecuentes en el país.
+
+En cuanto a la creación de software con la misma finalidad se encuentran trabajos precedentes, como el desarrollo de una aplicación Android con conexión inalámbrica, con la necesidad de implementar algún algoritmo de inteligencia artificial para analizar las señales biomédicas \citep{bib1}. Así mismo se encuentra la adquisición de variables físicas en el software Soft V8.3 empleando un generador de señales enviadas a un Controlador Lógico Programable y un sensor PT100 \citep{bib8}. 
+
+Cabe mencionar que ya se han implementado modelos orientados únicamente en la aplicación de métodos de inteligencia artificial o en la adquisición de señales cardíacas, uno de estos es el análisis de las técnicas más populares de machine learning aplicadas a la clasificación y predicción de enfermedades cardiovasculares \citep{bib6}, también se ha analizado el impacto de la inteligencia artificial en el área de cardiología específicamente en la identificación de patrones del ser humano posibles de detectar \citep{bib4}. Además ya se han aplicado algunas métricas para su evaluación utilizando herramientas como WEKA y SPSS \citep{bib5}. De igual forma se destaca la aplicación de una red neuronal convolucional profunda (CNN) para clasificar cuatro tipos de arritmias cardíacas en señales de ECG, y comparar el rendimiento del modelo propuesto con otros enfoques de clasificación de arritmias \citep{bib11}.
+
+De manera similar tanto \citep{bib3} como \citep{bib9} puntualizan el uso de sensores ya sea inalámbricos o no para la obtención de señales para su posterior filtrado, algunas de las técnicas de filtrado empleadas son filtros pasa bajas (FPB) o Transformada de Wavelet.
+
+Finalmente, \citep{bib10} muestra la capacidad de las placas Arduino para la obtención se señales para su posterior envío a una aplicación móvil en donde se realiza el filtrado de estas, para entonces visualizarlas en tiempo real. 
+
+\section{Planteamiento del problema}
+\label{sec:planteamiento}
+\subsection{Definición del problema}
+
+La problemática de este proyecto consiste en desarrollar un sistema que permita capturar señales de electrocardiograma (ECG) utilizando electrodos y Arduino, así mismo analizarlas para detectar posibles anomalías mediante el uso de técnicas de machine learning. 
+La detección temprana de anormalidades en el ECG es importante para el diagnóstico y tratamiento de enfermedades cardíacas, lo que puede mejorar la calidad de vida de los pacientes y salvar vidas.
+En la actualidad, existen varias técnicas para la detección de irregularidades en el ECG, como el análisis de la frecuencia cardíaca y la detección de arritmias. 
+Sin embargo, estos métodos pueden tener limitaciones en términos de precisión y eficacia. La utilización de técnicas de machine learning, específicamente redes neuronales recurrentes(RNN) puede permitir la identificación de patrones complejos en las señales de ECG,
+lo que puede mejorar la precisión y la eficacia de la detección de dichas anomalías.\\
+
+La brecha entre el conocimiento actual y el nuevo se encuentra en la implementación de un sistema integrado que permita la captura de señales de ECG mediante electrodos y Arduino, y el posterior análisis de estas 
+señales mediante técnicas de machine learning para detectar afecciones cardíacas. Además, se busca la optimización de los algoritmos de machine learning para lograr una detección más precisa y eficaz.
+La situación actual es que existen sistemas comerciales para la detección de anormalidades en el ECG, pero estos pueden ser costosos y no siempre están disponibles en todas las regiones. 
+Por lo tanto, la implementación de un sistema accesible y de bajo costo que pueda detectar irregularidades en el ECG es un desafío importante. La solución propuesta busca mejorar la disponibilidad y accesibilidad de la
+localización de anomalías en el ECG mediante la utilización de técnicas de ingeniería en computación y machine learning.
+Se han realizado varios estudios en el ámbito de la detección de posibles patrones irregulares en señales electrocardiográficas utilizando técnicas de machine learning, como el uso de redes neuronales artificiales y algoritmos de clasificación. 
+Sin embargo, aún existen desafíos en cuanto a la optimización de los algoritmos para mejorar la precisión y eficacia de la detección. Este proyecto busca contribuir a la investigación en este campo y desarrollar 
+soluciones innovadoras para detectar anomalías en el ECG utilizando técnicas de ingeniería en computación y machine learning.
+
+
+\subsection{Preguntas de investigación}
+\subsubsection{Pregunta central}
+¿Puede el uso de sensores ECG y la placa de desarrollo Arduino Uno combinados con técnicas de aprendizaje automático mejorar la precisión en la clasificación de patrones en enfermedades cardíacas?\\
+
+\begin{itemize}
+	\item ¿Cómo puede la integración de sensores ECG y la placa de desarrollo Arduino uno, en 
+		combinación con técnicas de aprendizaje automático, mejorar la precisión en la 
+		detección de patrones de anomalías cardíacas?
+	\item ¿Cuál es el mejor enfoque de análisis de señales ECG para maximizar la precisión de la 
+		clasificación señales electrocardiográficas?
+	\item ¿Cómo se pueden optimizar los parámetros de las técnicas de aprendizaje automático para 
+		mejorar la sensibilidad de la detección de patrones anormales en las señales ECG capturadas?
+	\item ¿Como se pueden procesar señales electrocardiográficas adquiridas con el sistema propuesto para encontrar similitudes con las adquiridas de fuentes como repositorios medicos?
+\end{itemize}
+
+\subsection{Objetivos}
+
+\subsubsection{Objetivo general}
+
+Desarrollar un sistema de adquisición de señales ECG usando sensores para electrocardiograma con Arduino para clasificar los patrones que presenten dichas señales obtenidas utilizando técnicas de Machine Learning considerando como variables la frecuencia de muestreo, la duración del registro de la señal y la ubicación de los sensores.
+\subsubsection{Objetivos específicos}
+\begin{itemize}
+	\item Implementar métodos en el microcontrolador Arduino para adquirir y almacenar las señales ECG obtenidas.
+	\item  Desarrollar algoritmos de procesamiento de señales ECG para extraer características 
+		relevantes.
+	\item Aplicar técnicas de machine learning para clasificar las señales ECG según patrones de normalidad.
+	\item Analizar registros de señales ECG adquiridas de fuentes como repositorios médicos.
+	\item  Validar la precisión y confiabilidad del sistema desarrollado mediante pruebas con datos de señales ECG reales.
+\end{itemize}
+\subsection{Meta de ingeniería}
+
+\begin{itemize}
+	\item Meta de Ingeniería\\
+	Diseñar y desarrollar un sistema de adquisición de señales ECG utilizando sensores y la placa de desarrollo Arduino Uno, que sea capaz de capturar señales eléctricas del corazón de alta calidad y transferirlas a un sistema de procesamiento y análisis de datos. 
+	Posteriormente, utilizar técnicas de aprendizaje automático para analizar las señales electrocardiográficas y mejorar la precisión en la detección de patrones anormales en comparación con los métodos tradicionales. Finalmente, optimizar los parámetros del sistema de aprendizaje automático para mejorar aún más la precisión y velocidad de detección de patrones anormales en las señales.
+\end{itemize}
+
+\section{Relevancia de la investigación}
+\label{sec:significance}
+
+\subsection{Justificación}
+La aplicación de los sensores de ECG  son una herramienta no invasiva y relativamente económica para obtener información sobre la actividad eléctrica del corazón, lo que permite identificar patrones y anomalías en dichas señales.
+Por otro lado, los algoritmos de Machine Learning(ML) son una herramienta cada vez más potente en el campo de la medicina, debido a su capacidad para analizar grandes cantidades de datos, encontrar patrones y relaciones que pueden ser difíciles de detectar empleando métodos tradicionales.  
+Definitivamente la implementación de algoritmos a las señales ECG adquiridas puede ayudar a identificar anomalías presentes en la señal de forma automatizada, teniendo como potencial ventaja el diagnóstico más temprano.
+
+\subsection{Impactos}
+
+\begin{itemize}
+	\item Tecnológico.\\
+	Adquisición de señales ECG con sensores de monitoreo para su posterior clasificación mediante la aplicación de algoritmos de inteligencia artificial, por lo que este proyecto pretende impulsar el desarrollo de tecnología innovadora en el campo de la ingeniería en computación. 
+	Además, la investigación en este ámbito podría tener implicaciones en otras áreas, como el internet de las cosas.
+	\item Social.\\
+	Las enfermedades cardiovasculares son una de las principales causas de mortalidad en todo el mundo, afectando a personas de todas las edades y orígenes.
+	Un proyecto que tenga como objetivo mejorar la prevención y el tratamiento de estas enfermedades tendría un impacto social significativo al mejorar la calidad de vida de las personas y reducir la carga en los sistemas de salud.
+	\item Económico.\\
+	La creación del sistema embebido pretender ser una herramienta tecnológica de bajo costo.
+\end{itemize}
+\section{Alcance y limitaciones}
+\label{sec:scope}
+\subsection{Declaración del alcance del proyecto}
+Desarrollar un sistema embebido automatizado de monitoreo y análisis de señales cardiovasculares utilizando sensores de electrocardiograma y un microcontrolador Arduino, estos componentes facilitarán las capturas de las señales electrónicas del corazón, para posteriormente procesarlas y aplicar un análisis automático implementando el uso de las técnicas de machine learning. Dicho proyecto se pretende elaborar en un periodo comprendido de un mes.
+\subsection{Requerimientos del proyecto}
+La tabla \ref{tab:Req_Disp} muestra los requerimientos con los que se cuenta para realizar el proyecto.
+
+% Please add the following required packages to your document preamble:
+% \usepackage{longtable}
+% Note: It may be necessary to compile the document several times to get a multi-page table to line up properly
+\begin{longtable}{ll}
+	\caption{Requerimientos Disponibles}
+	\label{tab:Req_Disp}\\
+	\hline
+	\multicolumn{1}{c}{\textbf{Requerimiento}} & \multicolumn{1}{c}{\textbf{Descripción}} \\ \hline
+	\endfirsthead
+	%
+	\endhead
+	%
+	Arduino IDE & \begin{tabular}[c]{@{}l@{}}Es una aplicación de software que le permite escribir, cargar y depurar \\ el código que se ejecutara en la placa Arduino. Debido a su fácil \\ implementación de algoritmos, se pretende utilizar esta herramienta \\ para desarrollar algoritmos de procesamiento de señales.\end{tabular} \\ \hline
+	MATLAB & \begin{tabular}[c]{@{}l@{}}Es un software de cálculo numérico y análisis de datos desarrollado \\ por la empresa MathWorks. \\ MathWorks ofrece diferentes opciones de licencia para MATLAB,\\ en este caso en particular se cuenta con la licencia Académica. \\ Gracias a sus múltiples herramientas en el área de procesamiento \\ de señales, así como el área de Inteligencia Artificial, se pretende\\ usar MATLABpara realizar el entrenamiento y validación \\ de la red neuronal.\end{tabular} \\ \hline
+	Equipo de cómputo & \begin{tabular}[c]{@{}l@{}}Se encargará de almacenar tanto las señales adquiridas por el sensor,\\ como los algoritmos necesarios para el desarrollo de la red neuronal, \\ dicho equipo consta de las   siguientes características: •\\ \\ PROCESADOR: Intel(R) Core(TM) i5-10210U CPU @ 1.60GHz 2.11 GHz \\ MEMORIA RAM: 12.0 GB \\ SISTEMA OPERATIVO: WINDOWS 11\end{tabular} \\ \hline
+	Datasets & \begin{tabular}[c]{@{}l@{}}Tanto para entrenamiento como validación, se utilizará el dataset de tipo \\ ECG Heartbeat Categorization Dataset que está compuesto de dos\\ colecciones de señales de latidos cardíacos derivados de dos datasets\\ famosos, el primer dataset se enfoca en Arritmia MIT-BIH y el segundo\\ dataset de diagnóstico de ECG de PTB.\end{tabular} \\ \hline
+	Tiempo & El proyecto se pretende concluir en un periodo comprendido de un mes. \\ \hline
+	Financiamiento & \begin{tabular}[c]{@{}l@{}}Al momento de plantear los requerimientos del proyecto, se estableció un\\ presupuesto aproximado de \$1200.00 pesos, el cual se obtuvo de la sumatoria\\  de los precios el desglose de esta estimación se muestra en la tabla 1.0.\end{tabular} \\ \hline
+	\end{longtable}
+
+	De la misma forma la tabla \ref{tab:Req_P_Adq} muestra los requerimientos por adquirir necesarios para elaborar el proyecto.
+
+% Please add the following required packages to your document preamble:
+% \usepackage{longtable}
+% Note: It may be necessary to compile the document several times to get a multi-page table to line up properly
+\begin{longtable}{llcl}
+	\caption{Requerimientos por adquirir para el desarrollo del proyecto.}
+	\label{tab:Req_P_Adq}\\
+	\hline
+	\multicolumn{1}{c}{\textbf{Requerimiento}} &
+	  \multicolumn{1}{c}{\textbf{Descripción}} &
+	  \multicolumn{1}{l}{\textbf{Cantidad}} &
+	  \multicolumn{1}{c}{\textbf{Costo}} \\ \hline
+	\endfirsthead
+	%
+	\endhead
+	%
+	Amplificador AD8232 &
+	  \begin{tabular}[c]{@{}l@{}}Es un amplificador de instrumentación utilizado\\ en la medición de señales electrónicas del corazón.\end{tabular} &
+	  1 &
+	  \$ 200.00 \\ \hline
+	Arduino UNO &
+	  \begin{tabular}[c]{@{}l@{}}Es una placa de desarrollo basada en el \\ microcontrolador ATmega 328P, \\ que cuenta con un procesador AVR \\ de 8 bits  y una velocidad\\ de reloj de 16 MHz.\\ la placa UNO cuenta con una arquitectura AVR\end{tabular} &
+	  1 &
+	  \$500.00 \\ \hline
+	Electrodos Meditrace serie 200 &
+	  \begin{tabular}[c]{@{}l@{}}Son electrodos de grado médico utilizados en\\ la medición de actividad eléctrica del corazón,\\ sobre todo en pruebas de electrocardiograma.\\ Algunas de sus caracteristicas son:\\ - La facilidad de adherirse a la piel del paciente.\\ - Proporciona una señal electrica clara y precisa\\ para el monitoreo de la actividad cardiaca.\end{tabular} &
+	  1 &
+	  \$500.00 \\ \hline
+	 &
+	  \multicolumn{1}{c}{\textbf{TOTAL}} &
+	  \multicolumn{1}{l}{} &
+	  \multicolumn{1}{c}{\textbf{\$1200.00}} \\ \hline
+	\end{longtable}
+
+\subsection{Limitantes}
+
+Existen diversas limitaciones que pueden presentarse en el desarrollo del proyecto. En primera instancia los datos, tanto de entrenamiento como de validación, pues su disponibilidad y relevancia constituye un factor critico al momento de desarrollar el proyecto. Adicionalmente, el tratamiento efectivo de las señales adquiridas puede representar un factor limitante, pues para filtrar el ruido de la señal captada es necesario emplear técnicas de filtrado de señales. 
+En caso de presentarse alguna limitante con relación a la relevancia de los datos se pretende indagar en bases de datos en clínicas internacionales. En el caso de presentarse una limitante con respecto a las señales y el ruido que estas puedan presentar, se optaría por implementar otro tipo de filtros para su limpieza correcta.
+
+\subsubsection{Plan de Riesgos}
+
+En caso de presentarse las limitantes antes mencionadas, se pretende poner en marcha el siguiente plan de riesgos, el cual contempla dos criterios.
+
+\begin{itemize}
+	\item Aplicación del 70\% de total de los datos del dataset a  entrenamiento y 30\% a la validación.
+	\item Aplicar técnicas de filtrado para señales ECG, como Filtro Pasa Banda o Transformada Rápida de Fourier.
+\end{itemize}

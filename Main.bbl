@@ -1,0 +1,160 @@
+\begin{thebibliography}{23}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Abuhaija et~al.(2023)Abuhaija, Alloubani, Almatari, Jaradat, Abdalla, Abualkishik, y Alsmadi]{bib5}
+B.~Abuhaija, A.~Alloubani, M.~Almatari, G.~M. Jaradat, H.~B. Abdalla, A.~M. Abualkishik, M.~K. Alsmadi.
+\newblock A comprehensive study of machine learning for predicting cardiovascular disease using {Weka} and {SPSS} tools.
+\newblock \emph{International Journal of Electrical and Computer Engineering}, 13\penalty0 (2):\penalty0 1891 -- 1902, 2023.
+\newblock ISSN 20888708.
+\newblock DOI \url{http://doi.org/10.11591/ijece.v13i2.pp1891-1902}.
+\newblock URL \url{https://bit.ly/3JHOJ36}.
+\newblock Publisher: Institute of Advanced Engineering and Science Type: Article.
+
+\bibitem[Aggarwal(2018)]{bib18}
+C.~C. Aggarwal.
+\newblock \emph{Neural Networks and Deep Learning. A Textbook}.
+\newblock Springer, 2018.
+\newblock ISBN 978-3-319-94463-0.
+\newblock URL \url{http://gen.lib.rus.ec/book/index.php?md5=2f4d0e05eb1218c27e23558b60c48735}.
+
+\bibitem[Ahamed et~al.(2015)Ahamed, Hasan, y Alam]{bib10}
+M.~A. Ahamed, M.~K. Hasan, M.~S. Alam.
+\newblock Design and implementation of low cost ecg monitoring system for the patient using smartphone.
+\newblock \emph{International Conference on Electrical \& Electronic Engineering (ICEEE)}, pp 261--264, 2015.
+\newblock DOI \url{https://doi.org/10.1109/CEEE.2015.7428272}.
+\newblock URL \url{https://ieeexplore.ieee.org/document/7428272}.
+
+\bibitem[{Anadigm. Inc}(2012)]{bib19}
+{Anadigm. Inc}.
+\newblock An221e04 datasheet dynamically reconfigurable fpaa with enhanced i/o.
+\newblock \url{https://www.anadigm.com/documents/AN221E04-1.pdf}, 2012.
+
+\bibitem[Bonet~Cruz et~al.(2007)Bonet~Cruz, Salazar~Martínez, Rodríguez~Abed, Grau~Ábalo, y García~Lorenzo]{bib22}
+I.~Bonet~Cruz, S.~Salazar~Martínez, A.~Rodríguez~Abed, R.~Grau~Ábalo, M.~M. García~Lorenzo.
+\newblock Redes neuronales recurrentes para el análisis de secuencias.
+\newblock \emph{Revista Cubana de Ciencias Informáticas}, 2007.
+\newblock ISSN 1994-1536.
+\newblock URL \url{https://www.redalyc.org/articulo.oa?id=378343634004}.
+
+\bibitem[Cho(2010)]{bib15}
+J.~J. Cho.
+\newblock An exploratory study on issues and challenges of agile software development with scrum.
+\newblock \emph{All Graduate theses and dissertations}, p 599, 2010.
+\newblock DOI \url{https://doi.org/10.26076/4055-b875}.
+\newblock URL \url{https://digitalcommons.usu.edu/etd/599}.
+
+\bibitem[Dorado~Díaz et~al.(2019)Dorado~Díaz, Sampedro~Gómez, Vicente~Palacios, y Sánchez]{bib4}
+P.~I. Dorado~Díaz, J.~Sampedro~Gómez, V.~Vicente~Palacios, P.~L. Sánchez.
+\newblock Aplicaciones de la inteligencia artificial en cardiología: el futuro ya está aquí.
+\newblock \emph{Revista Española de Cardiología}, 72\penalty0 (12):\penalty0 1065--1075, 2019.
+\newblock ISSN 03008932.
+\newblock DOI \url{https://doi.org/10.1016/j.recesp.2019.05.016}.
+\newblock URL \url{https://www.revespcardiol.org/es-aplicaciones-inteligencia-artificial-cardiologia-el-articulo-S0300893219302507}.
+
+\bibitem[González~Cervantes et~al.(2016)González~Cervantes, Espinoza~Valdez, y Salido~Ruiz]{bib16}
+N.~González~Cervantes, A.~Espinoza~Valdez, R.~Salido~Ruiz.
+\newblock Potencial eléctrico en el corazón: Representación mediante un grafo.
+\newblock \emph{ReCIBE. Revista electrónica de Computación, Informática, Biomédica y Electrónica}, 2016.
+\newblock URL \url{https://www.redalyc.org/articulo.oa?id=512253114012}.
+
+\bibitem[Gonzélez~Medina(2022)]{bib7}
+L.~E. Gonzélez~Medina.
+\newblock Análisis espacial de las enfermedades cardiovasculares en méxico: Modelos predictivo.
+\newblock Bachelor's thesis, UNAM, 2022.
+\newblock URL \url{http://132.248.9.195/ptd2022/enero/0821498/Index.html}.
+
+\bibitem[Jennifer~S. et~al.(2021)Jennifer~S., Ram, Isidoros, y Yong]{bib6}
+R.~Jennifer~S., P.~Ram, P.~Isidoros, S.~Yong.
+\newblock \emph{Intelligent Sustainable Systems: Proceedings of ICISS 2021 (Lecture Notes in Networks and Systems, 213)}.
+\newblock Springer, 1st ed. 2022 edición, 2021.
+\newblock ISBN 9811624216,9789811624216.
+\newblock URL \url{http://gen.lib.rus.ec/book/index.php?md5=D3466E299E8201699E17D0E8E1EE4C2C}.
+
+\bibitem[J.J(2020)]{bib17}
+S.~J.J.
+\newblock \emph{SCRUM: MANUAL DE CAMPO. Una clase magistral para acelerar el desempeño, obtener resultados y planear para el futuro}.
+\newblock OCEANO, 1 ed edición, 2020.
+\newblock ISBN 978-607-557-191-1.
+
+\bibitem[Mangne~Machaca(2009)]{bib13}
+D.~O. Mangne~Machaca.
+\newblock Detección de arritmias cardiacas con redes neuronales artificiales.
+\newblock Bachelor's thesis, UNIVERSIDAD MAYOR DE SAN ANDRÉS FACULTAD DE CIENCIAS PURAS Y NATURALES, 2009.
+\newblock URL \url{{https://repositorio.umsa.bo/bitstream/handle/123456789/1485/T-1900.pdf?sequence=1&isAllowed=y}}.
+
+\bibitem[Matrínez~Sastre(2021)]{bib23}
+R.~Matrínez~Sastre.
+\newblock Redes neuronales recurrentes para la predicción de energia eólica y fotovoltaica, 2021.
+\newblock URL \url{https://repositorio.uam.es/bitstream/handle/10486/700222/martinez_sastre_ruben_tfm.pdf?sequence=1&isAllowed=y}.
+
+\bibitem[Navarro et~al.(2013)Navarro, Fernández, y Morales]{bib14}
+A.~Navarro, J.~D. Fernández, J.~Morales.
+\newblock Revisión de metodologías ágiles para el desarrollo de software.
+\newblock \emph{PROSPECTIVA}, 11:\penalty0 30--39, 2013.
+\newblock ISSN 1692-8261.
+\newblock URL \url{https://www.redalyc.org/articulo.oa?id=496250736004}.
+
+\bibitem[Ortega~Ordoñez et~al.(2023)Ortega~Ordoñez, Cobos~Recalde, Segura~Núñez, y Sandoval~Sandoval]{bib8}
+R.~C. Ortega~Ordoñez, L.~F. Cobos~Recalde, G.~P. Segura~Núñez, E.~M. Sandoval~Sandoval.
+\newblock Adquisición de señales analógicas de instrumentación con logo! soft v8.3 mediante generador de señales y el sensor pt100.
+\newblock \emph{Ciencia Latina Revista Científica Multidisciplinar}, 7\penalty0 (1):\penalty0 7865--7880, mar. 2023.
+\newblock DOI \url{https://doi.org/10.37811/cl_rcm.v7i1.5017}.
+\newblock URL \url{https://ciencialatina.org/index.php/cienciala/article/view/5017}.
+
+\bibitem[Palma et~al.(2020)Palma, Martìnez, Castillo, García, Capitán, Martínez, Carvajal, y Escobedo]{bib3}
+A.~Palma, C.~Martìnez, E.~Castillo, A.~García, L.~Capitán, A.~Martínez, M.~Carvajal, P.~Escobedo.
+\newblock Procedimiento para la detección de señales balistocardiográficas y sistema que lo implementa, 2020.
+\newblock URL \url{https://patentimages.storage.googleapis.com/77/b5/9b/0fceec4eb8a2dc/WO2020136302A1.pdf}.
+\newblock Accessed: 2023-03-18.
+
+\bibitem[Prabu y Ravikumar(2016)]{bib12}
+K.~Prabu, T.~Ravikumar.
+\newblock Arduino and raspberry pi based efficient patient monitoring system.
+\newblock \emph{International Journal of Engineering Research \& Technology (IJERT) ICETET}, Volume 4, 2016.
+\newblock ISSN 2278-0181.
+\newblock URL \url{https://www.ijert.org/arduino-and-raspberry-pi-based-efficient-patient-monitoring-system}.
+
+\bibitem[Pérez~Guerrero(2020)]{bib21}
+J.~Pérez~Guerrero.
+\newblock Redes recurrentes, 2020.
+\newblock URL \url{https://idus.us.es/bitstream/handle/11441/115230/TFG%20DGMyE%20P%c3%a9rez%20Guerrero%2c%20Jes%c3%bas.pdf?sequence=1&isAllowed=y}.
+
+\bibitem[Rajkumar et~al.(2019)Rajkumar, Ganesan, y Lavanya]{bib11}
+A.~Rajkumar, M.~Ganesan, R.~Lavanya.
+\newblock Arrhythmia classification on ecg using deep learning.
+\newblock \emph{International Conference on Advanced Computing \& Communication Systems (ICACCS)}, 5:\penalty0 365--369, 2019.
+\newblock DOI \url{https://doi.org/10.1109/ICACCS.2019.8728362}.
+\newblock URL \url{https://ieeexplore.ieee.org/document/8728362}.
+
+\bibitem[Rodríguez et~al.(2023)Rodríguez, Castro, Pinedo, y Velasco]{bib2}
+P.~Rodríguez, H.~Castro, C.~Pinedo, J.~Velasco.
+\newblock Diseño de un microsistema para adquisición de señales cardiacas usando fpaas.
+\newblock \emph{{Grupo de Bio-nanoelectrónica EIEE. Universidad del Valle}}, 2023.
+\newblock URL \url{http://161.111.232.132/iberchip2006/ponencias/77.pdf}.
+
+\bibitem[Ryan~Ripley(2020)]{bib20}
+T.~M. Ryan~Ripley.
+\newblock \emph{Fixing Your Scrum: Practical Solutions to Common Scrum Problems}.
+\newblock Pragmatic Bookshelf, 1 edición, 2020.
+\newblock ISBN 1680506978,9781680506976.
+\newblock URL \url{http://gen.lib.rus.ec/book/index.php?md5=DA023A375B81251731C887801B7D1A02}.
+
+\bibitem[Smith et~al.(2022)Smith, Socarrás, y Vázquez]{bib1}
+R.~E. Smith, B.~N. Socarrás, C.~R. Vázquez.
+\newblock Aplicación android para la adquisición inalámbrica y visualización de señales biomédicas.
+\newblock \emph{Revista de Información Científica}, 101\penalty0 (3), 2022.
+\newblock URL \url{https://www.redalyc.org/articulo.oa?id=551771993001}.
+
+\bibitem[Vargas-Cañas et~al.(2021)Vargas-Cañas, Muñoz, y Campo~Cuaran]{bib9}
+R.~Vargas-Cañas, A.~R. Muñoz, W.~A. Campo~Cuaran.
+\newblock Construcción de un sistema {Electrocardiográfico} con conexión inalámbrica a teléfonos inteligentes.
+\newblock \emph{Scientia et Technica}, 26\penalty0 (03):\penalty0 269--277, Sept. 2021.
+\newblock DOI \url{https://doi.org/10.22517/23447214.23711}.
+\newblock URL \url{https://revistas.utp.edu.co/index.php/revistaciencia/article/view/23711}.
+\newblock Section: Mecánica.
+
+\end{thebibliography}

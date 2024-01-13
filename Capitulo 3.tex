@@ -1,0 +1,650 @@
+\chapter{Método}
+\label{chap:método_ciclo}
+
+\section{Ciclo de Vida Iterativo}
+Las metodologías ágiles se caracterizan por su flexibilidad, dado que pueden modificar los requerimientos y entregas al cliente para ajustar a la realidad percibida. \citep{bib14}. \\
+
+Dentro de la clasificación de dichas metodologías se destaca la nombrada SCRUM, la cual es un marco de trabajo diseñado para lograr una colaboración eficaz entre los equipos que integran el proyecto, se destaca por definir roles para formar una estructura y así lograr un correcto funcionamiento, además de implementar procesos iterativos \citep{bib14}.\\
+
+Tanto \citet[p. 16]{bib17} , como \citep{bib15} menciona que los roles de la metodología SCRUM son tres, los cuales son:
+
+\begin{itemize}
+    \item Propietario del producto (cliente)
+    \item Equipo de desarrollo (SCRUM Team)
+    \item Scrum Master (Líder del proyecto)
+\end{itemize}
+
+
+La imagen \ref{fig:scrum} muestra las fases de la metodología SCRUM de forma general.
+
+\begin{figure}[!ht]
+    \begin{center}
+        \includegraphics[width=\textwidth]{images/img9.pdf}
+    \end{center}
+    \caption{Fases de la metodología SCRUM \citep{bib20}}
+    \label{fig:scrum}
+\end{figure}
+
+La adaptación de la metodología SCRUM para el proyecto propuesto se muestra en la siguiente sección, donde se especifican las actividades a realizar por cada una de ellas. \\
+
+\begin{itemize}
+    \item Sprint de Planificación\\
+          Esta fase esta compuesta por:
+          \begin{itemize}
+              \item Identificación de los objetivos de proyecto
+              \item Identificación de los requerimientos del sistema.
+              \item Identificación de los recursos necesarios.
+              \item Diseño del diagrama de bloques del sistema.
+              \item Selección de los componentes del sistema.
+              \item Diseño de la arquitectura del software.
+          \end{itemize}
+    \item Sprint Daily\\
+          El cual esta compuesto por:
+          \begin{itemize}
+              \item Reuniones Cliente - Equipo
+          \end{itemize}
+    \item Sprint Backlog\\
+          Sus componentes son:
+          \begin{itemize}
+              \item Instalación y configuración del software necesario.
+              \item Implementación del algoritmo de procesamiento de señales ECG.
+              \item Implementación de la técnicas de Machine Learning.
+              \item Verificación del software implementado
+          \end{itemize}
+    \item Sprint Review\\
+          El cual esta compuesto por:
+          \begin{itemize}
+              \item Integración del Hardware y Software.
+              \item Pruebas unitarias del Hardware y Software.
+              \item Pruebas de integración del sistema completo.
+          \end{itemize}
+    \item Sprint Retrospective\\
+          Compuesto por:
+          \begin{itemize}
+              \item Documentación del proyecto.
+              \item Implementación en escenarios reales.
+          \end{itemize}
+\end{itemize}
+
+\section{Requerimientos}
+
+\subsection{Requerimientos Específicos}
+
+\begin{itemize}
+    \item Interfaz Gráfica\\
+          La interfaz gráfica del sistema para el usuario necesita ser intuitiva, buscando que sin instrucciones previas y a primera vista el usuario pueda identificar los componentes y secciones del sistema. La interfaz deberá contar con una paleta de color agradable a la vista, el usuario debería poder usar la interfaz por un largo tiempo sin problemas.\\
+          \begin{itemize}
+              \item Información del paciente
+                    \begin{itemize}
+                        \item En la interfaz principal, en la parte superior izquierda habrá un pequeño formulario que permitirá al usuario (médico o investigador) ingresar los datos de identificación del paciente, tales como nombre y edad, el registro deberá hacerse con caracteres alfanuméricos, se debe registrar a cada paciente por cada sesión del sistema.\\
+                    \end{itemize}
+              \item Pantalla de bioseñales
+                    \begin{itemize}
+                        \item Esta sección muestra las bioseñales capturadas del corazón en tiempo real.
+                        \item Su objetivo es mostrar tanto al usuario como al paciente el electrocardiograma
+                        \item Rango de este campo estará en función del tiempo que dure la sesión o hasta que el cliente lo indique.
+                    \end{itemize}
+              \item Pantalla de bioseñales
+                    \begin{itemize}
+                        \item Esta sección muestra los resultados del análisis de la señal, como frecuencia cardíaca.
+                        \item El rango de este campo depende del tiempo de la sesión.
+                        \item La frecuencia cardíaca deberá medirse en pulsaciones por minuto.
+                        \item El formato de los datos deberá ser numérico.
+                    \end{itemize}
+              \item Pantalla clasificación por redes neuronales
+                    \begin{itemize}
+                        \item Esta sección muestra la clasificación de la señal.
+                        \item Deberá mostrar si la señal es normal o no, indicando el porcentaje de
+                              normalidad o anormalidad.
+                    \end{itemize}
+              \item Pantalla exportar datos
+                    \begin{itemize}
+                        \item Esta sección permite generar un archivo pdf con los datos generados en las
+                              pantallas de bioseñales, análisis de señales, y la clasificación por redes
+                              neuronales.\\
+                    \end{itemize}
+          \end{itemize}
+\end{itemize}
+
+\begin{itemize}
+    \item Funciones\\
+          Las funciones del sistema “Cardio Scope” deben definir las acciones fundamentales que tiene lugar en el software.
+          \begin{itemize}
+              \item Visualización de Datos
+                    \begin{itemize}
+                        \item El sistema mostrará la frecuencia cardíaca y la forma de onda del ECG, así
+                              como otros datos pertinentes.
+                    \end{itemize}
+              \item Análisis de la señal
+                    \begin{itemize}
+                        \item El sistema proporcionará los pulsos por minuto de la forma de onda.
+                    \end{itemize}
+              \item Exportación de datos
+                    \begin{itemize}
+                        \item El sistema permitirá al usuario exportar los datos generados en la sesión en un
+                              archivo en formato pdf.
+                    \end{itemize}
+          \end{itemize}
+    \item Rendimiento\\
+          Los requisitos de rendimiento del sistema “Cardio Scope” constan de tres elementos
+          fundamentales: velocidad, capacidad y eficiencia.
+          \begin{itemize}
+              \item Capacidad
+                    \begin{itemize}
+                        \item El sistema debe albergar los datos tanto de entrenamiento como de validación.
+                    \end{itemize}
+              \item Velocidad
+                    \begin{itemize}
+                        \item El sistema debe mostrar tanto la forma de onde del ECG, así como valores
+                              numéricos de este y la clasificación en tiempo real.
+                    \end{itemize}
+              \item Eficiencia
+                    \begin{itemize}
+                        \item El sistema debe realizar el proceso de adquisición, análisis y clasificación sin
+                              interrupciones.
+                    \end{itemize}
+          \end{itemize}
+\end{itemize}
+
+\subsection{Requerimientos del Hardware}
+El hardware con el que cuente el sistema para la adquisición de señales ECG con Arduino para su  clasificación con redes neuronales deberá ser capaz de adquirir señales ECG de alta calidad,  amplificar y filtrar la señal para reducir el ruido y mejorar la calidad. Un hardware adecuado y bien diseñado es crucial para la precisión y fiabilidad del sistema de adquisición y clasificación de señales ECG, esto puede influir en la calidad de la atención proporcionada al paciente, En este sentido se deben considerar cuidadosamente los requerimientos funcionales del hardware y la compatibilidad con los componentes del sistema en general.\\
+
+\begin{itemize}
+    \item Adquisición, amplificación y filtrado de señales ECG
+          \begin{itemize}
+              \item El hardware debe ser capaz de adquirir señales ECG con suficiente calidad para
+                    permitir una clasificación precisa.
+              \item Para la amplificación el hardware debe ser capaz de amplificar y filtrar la señal
+                    ECG con el fin de reducir el ruido mejorar la calidad de la señal adquirida.
+          \end{itemize}
+    \item Conversión analógico-digital
+          \begin{itemize}
+              \item El hardware deberá ser capaz de convertir la señal ECG analógica a digital para
+                    que pueda ser procesada por el sistema de clasificación de redes neuronales.
+          \end{itemize}
+    \item Conectividad
+          \begin{itemize}
+              \item Debe haber compatibilidad entre Arduino y los dispositivos como el sensor y la computadora, para lograr transmitir la señal ECG y los resultados de clasificación.
+          \end{itemize}
+    \item Alimentación
+          \begin{itemize}
+              \item El hardware para la adquisición de a señal ECG debe ser alimentado de manera confiable y segura, preferiblemente por una fuente de alimentación externa.
+          \end{itemize}
+\end{itemize}
+
+\subsection{Otros Requerimientos}
+
+La norma ISO 14971:2019 se enfoca en la gestión de riesgos de los dispositivos médicos, y puede  ser aplicable al proyecto, ya que involucra la adquisición y clasificación de señales ECG. Esta norma  establece los requisitos para la identificación, análisis, evaluación y control de los riesgos asociados con los dispositivos médicos.\\
+
+
+\begin{itemize}
+    \item Identificación de riesgos
+          \begin{itemize}
+              \item Es necesario identificar los posibles riesgos que puedan resultar del uso del
+                    dispositivo medico en el proceso de adquisición de las señales ECG.
+          \end{itemize}
+    \item Análisis de Riesgos
+          \begin{itemize}
+              \item Se debe evaluar la probabilidad y posible impacto de cada riesgo identificado,
+                    se recomienda el uso de herramientas para análisis como FMEA ( Análisis de
+                    modo y efecto de Falla) para identificar causas y consecuencias de los riesgos.
+          \end{itemize}
+    \item Evaluación de riesgos
+          \begin{itemize}
+              \item El nivel de riesgo identificado, puede realizarse por medio de una matriz de riesgos.
+          \end{itemize}
+    \item Control de Riesgos
+          \begin{itemize}
+              \item Aplicar medidas de control para reducir los riesgos hasta un nivel aceptable,tales como, implementar controles de calidad, capacitación personal, entre otras.
+          \end{itemize}
+    \item Monitoreo y Revisión
+          \begin{itemize}
+              \item  Se deberá realizar de forma periódica la actualización y mantenimiento de los dispositivos de obtención de señales.
+          \end{itemize}
+\end{itemize}
+
+\subsection{Diagrama de Bloques}
+
+Los componentes del sistema se muestra en la figura \ref{fig:Bloques}, como se puede apreciar este esta compuesto por tres bloques (sistemas) principales: \textbf{Adquisición de Señales ECG}, \textbf{Procesamiento de señales ECG} y \textbf{Interfaz de Usuario}.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/img10.png}
+    \caption{Diagrama de bloques con los componentes del sistema}
+    \label{fig:Bloques}
+\end{figure}
+
+
+\subsection{Diagrama de Casos de Uso}
+
+La figura \ref{fig:Casos_uso} muestra el diagrama de casos de uso del proyecto, como se puede apreciar el usuario solo interactúa con el sistema y este provee de las respuestas para las que esta diseñado, todo esto por medio de una interfaz gráfica.\\
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=\textwidth]{images/img11.png}
+    \caption{Diagrama de Casos de Uso del sistema.}
+    \label{fig:Casos_uso}
+\end{figure}
+
+
+\section{Propuesta de Solución}
+
+En la figura \ref{fig:Flow} imagen se describe el proceso propuesto para la construcción del sistema capaz de analizar señales ECG y poder clasificarlas.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[height = 500px]{images/img16.pdf}
+    \caption{Diagrama de flujo que describe el proceso de construcción del sistema.}
+    \label{fig:Flow}
+\end{figure}
+
+De acuerdo con el contenido de la literatura se determina lo siguiente:
+
+\begin{enumerate}
+    \item Arduino DUE es la placa de desarrollo de microcontroladores óptimo para el desarrollo del sistema porque cuenta con un procesador ARM Cortex-M3 de 32 bits y una velocidad de reloj de 84 MHz, a diferencia de otros modelos como Arduino Uno y Mega, además tiene pines de entrada/salida digital (de los cuales 12 pueden ser usados como salidas PWM), entradas analógicas, puertos serie de hardware (UART), puertos de comunicación I2C, puertos SPI, un puerto USB nativo, una conexión Ethernet RJ45 y una conexión para tarjetas microSD. Asimismo, cuenta con una conexión de programación mediante el uso de un programador externo.es importante mencionar que es compatible con la mayoría de los shields de Arduino y puede programarse utilizando el IDE de Arduino.
+    \item El amplificador AD8232 es una opción popular para adquirir señales electrocardiográficas (ECG) debido a su alta precisión y capacidad para amplificar señales de baja amplitud, además se caracteriza por su  bajo consumo de energía y su pequeño tamaño, lo que lo hace ideal para aplicaciones portátiles y de bajo consumo, como monitores de salud y dispositivos de diagnóstico, de igual forma permite aplicar un filtro de paso bajo integrado para eliminar el ruido de alta frecuencia y un circuito de protección contra interferencias electromagnéticas.
+    \item Las redes neuronales pueden ser entrenadas con grandes conjuntos de datos de ECG y pueden aprender a identificar patrones específicos de señales que corresponden a diferentes afecciones cardíacas. Una vez entrenadas, las redes neuronales pueden clasificar nuevas señales ECG con una alta precisión, lo que las hace útiles en aplicaciones clínicas y de diagnóstico.
+\end{enumerate}
+
+\section{Cronograma de Actividades}
+
+
+Finalmente la figura \ref{fig:Crono} muestra el cronograma de las actividades planteadas para el desarrollo e implementación del sistema.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.65\textwidth, height = 300px]{images/img16.png}
+    \caption{Cronograma de Actividades}
+    \label{fig:Crono}
+\end{figure}
+
+\section{Desarrollo e Implementación del Proyecto}
+
+En esta sección se describe el proceso de desarrollo del sistema propuesto, el cual tiene como objetivo la obtención de señales electrocardiográficas utilizando Arduino, para posteriormente enviar estas señales al entorno de Matlab, en donde se filtraran por medio de un filtro de suavizado. Una vez filtrada la señal, estas serán clasificadas haciendo uso de una red neuronal recurrente, para finalmente integrar las funciones de adquisición, filtrado y clasificación dentro de una interface de usuario que facilite esta tarea.
+La fases para el desarrollo sen encuentran divididas de tal forma que se aborda en detalle procurando mostrar todas la partes que conforman este sistema.
+
+\subsection[]{Configuración de Hardware: Conexiones Arduino Uno y Módulo AD8232}
+El primer paso para la construcción de este sistema involucra la conexión de los elementos físicos (hardware) el cual consta de dos dispositivos. El primero es el módulo amplificador \textbf{AD8232}, el cual está diseñado específicamente para para amplificar y filtrar las señales débiles provenientes del corazón. Dentro de los filtros que emplea para se encuentran filtros \textbf{pasa altas} y \textbf{pasa bajas}, el objetivo de estos es eliminar el ruido y las interferencias no deseadas. A su vez, el módulo AD8232 analiza la señal obtenida para calcular la frecuencia cardíaca.
+
+La figura \ref{fig:AD8232} muestra un módulo AD8232, así como las partes que lo conforman.
+
+\begin{figure}[h!]
+    \centering
+    \subfloat[Vista Frontal]{
+        \includegraphics[width=0.20\textwidth]{images/img19.jpg}
+    }
+    \hspace{0.01\linewidth}
+    \subfloat[Vista Trasera]{
+        \includegraphics[width=0.20\textwidth]{images/img20.jpg}
+    }
+    \hspace{0.01\linewidth}
+    \subfloat[Conector jack 3.5mm]{
+        \includegraphics[width=0.20\textwidth]{images/img21.jpg}
+    }
+    \hspace{0.01\linewidth}
+    \subfloat[Electrodos]{
+        \includegraphics[width=0.20\textwidth]{images/img22.jpg}
+    }
+    \hspace{0.01\linewidth}
+    \subfloat[Parches adhesivos]{
+        \includegraphics[width = 0.20\textwidth]{images/img23.jpg}
+    }
+    \hspace{0.01\linewidth}
+    \subfloat[Módulo AD8232 completo]{
+        \includegraphics[width = 0.20\textwidth]{images/img24.jpg}
+    }
+    \caption{Componentes de un módulo amplificador AD8232}
+    \label{fig:AD8232}
+\end{figure}
+
+El segundo y ultimo componente de hardware es la placa Arduino uno, la figura \ref{fig:Conexión} muestra el diagrama de conexiones entre el módulo AD8232 y la placa Arduino UNO, en donde se pueden destacra algunas de las conexiones:\\
+
+\begin{itemize}
+    \item Conexión de Alimentación\\
+\end{itemize}
+Se conecta el pin \textbf{3.3V} del AD8232 al pin \textbf{3.3V} de la placa.\\
+Se conecta el pin \textbf{GND} del módulo al pin \textbf{GND} de la placa.
+
+\begin{itemize}
+    \item Conexiones de Señal
+\end{itemize}
+
+Se conecta el pin \textbf{OUTPUT} del módulo AD8232 al pin analógico de entrada de la placa, en este caso se usó el pin \textbf{A0}.
+Se conecta el pin \textbf{LO-} (referencia negativa) del módulo al pin \textbf{11} de la placa.
+Se conecta el pin \textbf{LO+} (amplificador derecho) del módulo AD8232 al pin \textbf{10} de la placa.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/img25.jpg}
+    \caption{Diagrama de conexiones módulo AD8232 y Arduino UNO}
+    \label{fig:Conexión}
+\end{figure}
+
+\subsection[]{Transferencia de Señales ECG desde Arduino a Matlab}
+Una vez realizadas la conexiones físicas entre los componentes (hardware), es momento de adquirir algunas señales para comprobar su funcionamiento, para esta primera adquisición se utilizará Arduino IDE, para esto se escribió el código de adquisición que a grandes rasgo realiza lo siguiente:
+
+\begin{itemize}
+    \item Inicializar comunicación en serie, con el objetivo de enviar datos por medio del puerto serial.
+    \item Se configuran los pies \textbf{10} y \textbf{11} como entradas digitales, estos serán utilizados para detectar señales.
+    \item Se realiza la lectura del valor analógico \textbf{A0}, mismo que será enviado a traves del puerto serial.
+\end{itemize}
+
+La figura  \ref{fig:SerialMonitor} muestra una primera adquisición por medio del Serial Monitor integrado en Arduino IDE.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[]{images/img26.png}
+    \caption{Señal ECG mostrada desde Serial Monitor de Arduino IDE}
+    \label{fig:SerialMonitor}
+\end{figure}
+
+Una vez comprobado el funcionamiento de la adquisición de señales por medio de Arduino IDE, es momento de enviar estas señales a Matlab, para esto se desarrolló el código para el envió de datos el cual realiza lo siguiente:
+
+\begin{itemize}
+    \item Configuración inicial:
+          \begin{itemize}
+              \item Se utilizan los comandos \texttt{clear all} y \texttt{clc} para limpiar el espacio de trabajo y la ventana de comandos respectivamente.
+              \item Se establece la conexión con la placa Arduino Uno a través del puerto serial utilizando el objeto \texttt{serialport}. En este caso, se utiliza el puerto COM1 y una velocidad de transmisión de 9600 baudios.
+          \end{itemize}
+
+    \item Configuración de la adquisición de datos:
+          \begin{itemize}
+              \item Se definen parámetros como el tiempo de muestreo (\texttt{sampleTime}), el número de muestras (\texttt{numSamples}), el número de muestras por marco (\texttt{samplesPerFrame}), entre otros.
+              \item Se crea una matriz para almacenar los datos adquiridos.
+          \end{itemize}
+
+    \item Inicialización y bucle de lectura de datos:
+          \begin{itemize}
+              \item Se inicializan los datos del búfer  y la variable \texttt{i} para contar el número de muestras adquiridas.
+              \item Dentro del bucle, se lee el valor del sensor a través del puerto serial y se almacena en la variable \texttt{sensorValue}.
+              \item Se guarda el tiempo y el valor del sensor en la matriz.
+              \item Se verifica si se ha alcanzado el número de muestras por marco y se importan los datos al espacio de trabajo.
+              \item Se agrega un retraso (\texttt{pause(sampleTime)}) para evitar un desbordamiento de datos.
+          \end{itemize}
+
+    \item Cierre y visualización de datos:
+          \begin{itemize}
+              \item Se cierra el puerto serial.
+              \item Se asigna la matriz \texttt{x} al espacio de trabajo para poder acceder a los datos adquiridos.
+              \item Se gráfica la matriz \texttt{x}, mostrando el tiempo en el eje x y el valor del sensor en el eje y.
+          \end{itemize}
+\end{itemize}
+
+La imagen \ref{fig:Workspace} muestra el resultado del envió de datos desde Arduino a Matlab.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width = 0.8\textwidth]{images/img27.png}
+    \caption{Envió de datos y almacenamiento en Matlab}
+    \label{fig:Workspace}
+
+\end{figure}
+
+Como se puede observar en la imagen anterior se aprecian los componentes de una ECG, por lo tanto es momento de implementar el filtro y diseñar la red neuronal recurrente para la clasificación, estos últimos serán desarrollados en Matlab, por lo tanto ya no se usará Arduino IDE.
+
+\subsection[]{Realce de Características de la Señal ECG mediante Filtro}
+Una vez que se cuentan con las señales en el entorno de trabajo de Matlab, se pueden aplicar el filtro cuyo objetivo es suavizar el ruido presente en la señal. A grandes rasgos, el filtro de media móvil es una técnica de filtrado ampliamente utilizada en areas como ciencia de datos en donde se busca obtener una representación más clara de las frecuencias subyacentes de la señal. Tradicionalmente, se establece un tañamo de ventana el cual permite calcular el promedio de un vector de muestras y remplaza el valor original por este promedio.
+
+Para la aplicación del filtro se empleó la función \texttt{smoothdata} en conjunto con la el método \texttt{movmean} esto para permitir a Matlab escoger el tamaño de ventana optimo para el filtro.\\
+
+
+La figura \ref{fig:Data_Fil} muestra el resultado de la aplicación del filtro de media móvil para suavizar el ruido de la señal.\\
+Se puede observar que antes del filtro algunas ondas de la señal ECG cuentan con ruido, una vez aplicado el filtro se observan de manera más clara los complejos y ondas de la señal.
+
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width = 0.8\textwidth]{images/img28.png}
+    \caption{Resultados del filtro de media móvil}
+    \label{fig:Data_Fil}
+\end{figure}
+
+\subsection[]{Diseño de la Red Neuronal Recurrente}
+Una vez comprobado el funcionamiento del filtro de media móvil, el siguiente paso es crear el modelo de clasificación, para esto se optó por implementar una red neuronal recurrente agregando \textbf{Unidades Recurrentes con Compuertas}, las cuales, como ya se mencionó en el análisis de la literatura, por su simplicidad y eficiencia con respecto a otras como las \textbf{LSTM} son la mejor opción para cumplir los objetivos del proyecto, dentro de los cuales de determinó clasificar las señales en \textbf{Normal} y \textbf{Anormal}.
+\subsubsection{Descarga del dataset}
+El primer paso para la construcción del modelo de clasificación es contar con un conjunto de datos que permitan a la red neuronal entender las relaciones entre los registros \textbf{Normales} y \textbf{Anormales}. El dataset elegido es parte del repositorio de Physionet, el cual lleva por nombre \textbf{AF Classification from a Short Single Lead ECG Recording: The PhysioNet/Computing in Cardiology Challenge 2017}, el cual consta de una serie de registros de electrocardiograma de \textbf{una derivación}, la razón por la cual se eligió este dataset es por su compatibilidad con el modulo amplificador AD8232, ya que ambos cuentan con una derivación.
+
+\subsubsection{Preprocesamiento}
+Una vez descargado el dataset, se puede observar que este cuenta con un total de 5788 registros, catalogados como \textbf{Normal} y \textbf{Anormal}.
+
+La tabla \ref{tab:Structure} muestra la estructura del dataset, contemplando el total de registros, así como sus categorías.
+
+
+\begin{table}[!ht]
+    \centering
+    \caption{Estructura del dataset}
+    \label{tab:Structure}
+    \begin{tabular}{ll}
+        \hline
+        \begin{tabular}[c]{@{}l@{}}TOTAL DE\\ REGISTROS\end{tabular} & 5788 \\ \hline
+        NORMAL                                                       & 5050 \\ \hline
+        ANORMAL                                                      & 738  \\ \hline
+    \end{tabular}
+\end{table}
+
+Una vez explorado el dataset, se puede observar que la distribución de muestras se encuentra divida en dos categorías, aquellas con 9000 muestras y aquellas con 18000 muestras, es decir no se tiene una distribución uniforme en cuanto al numero de muestras presentes en el dataset. Para forzar un distribución uniforme, se optó por realizar una segmentación de señales, esta técnica consiste en dividir las señales con un mayor número de muestras tantas veces sea necesario hasta lograr señales con el mismo número de muestras. en este caso las señales con un mayor número de muestras son de 18000, mientras que las más pequeñas de 9000, por lo tanto el factor de segmentación es 2, por lo tanto las señales con 18000 muestras son divididas entre dos y agregadas al conjunto mayoritario, dando como resultado una distribución uniforme en cuanto al numero de muestras presentes en cada señal. Todas aquellas señales menores a 9000 o 18000 son descartadas.\\
+
+La figura \ref{fig:Segment} \textit{(a)} muestra la distribución inicial de muestras por señal, en donde se puede observar las dos categorías de muestras.
+
+La figura \ref{fig:Segment} \textit{(b)} muestra el resultado de la segmentación de señales, se puede apreciar que ahora se cuenta con una distribución uniforme en cuanto al número de señales por registro.
+
+\begin{figure}[h!]
+    \centering
+    \subfloat[Distribución de muestras por registro]{
+        \includegraphics[width=0.60\textwidth]{images/img29.png}
+    }
+    \hspace{0.01\linewidth}
+    \subfloat[Resultado de la segmentación de señales.]{
+        \includegraphics[width=0.60\textwidth]{images/img30.png}
+    }
+    \caption{Segmenatación de señales}
+    \label{fig:Segment}
+\end{figure}
+
+Una vez que se tiene una distribución uniforme, se pueden aplicar análisis  descriptivo para conocer las categorías que conforman este nuevo dataset.\\
+
+
+la tabla \ref{tab:Seg_Tab} muestra el total de señales, así como el número de señales catalogadas como \textbf{Normales} y \textbf{Anormales}.
+
+\begin{table}[!ht]
+    \centering
+    \caption{Total de registros y categorias}
+    \label{tab:Seg_Tab}
+    \begin{tabular}{ll}
+        \hline
+        \begin{tabular}[c]{@{}l@{}}TOTAL DE\\ REGISTROS\end{tabular} & 5655 \\ \hline
+        NORMAL                                                       & 4937 \\ \hline
+        ANORMAL                                                      & 718  \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsubsection[]{Balanceo de clases}
+Una vez que se cuenta con una distribución uniforme es necesario crear los conjuntos de entrenamiento y validación, este paso es muy importante, ya que de no hacerlo se corre el riesgo de generalizar las respuestas del modelo, en otras palabras, si el modelo es entrenado con clases desbalanceadas, este aprenderá a clasificar todas las instancias como pertenecientes a la clase dominante.
+
+El balanceo propuesto en este caso esta dividido en tres categorías.
+
+\begin{enumerate}
+    \item 70\% entrenamiento y 30\% validación
+    \item 80\% entrenamiento y 20\% validación
+    \item 90\% entrenamiento y 10\% validación
+\end{enumerate}
+
+Una vez obtenido el numero de registros por clase es necesario balancear las clases, esto se consigue aplicando \textbf{sobremuestreo}, esta es una técnica que consiste en multiplicar tantas veces sea necesario una la case minoritaria con el objetivo de igualar el numero de instancias en las clase mayoritaria. En este caso especifico, primero se dividió el numero de instancias de la clase minoritaria entre las instancias de la clase mayoritaria, dando un factor de multiplicación de $6.7 \simeq 7$, el cual es usado para multiplicar las instancias minoritarias, dando como resultado el balanceo de clases.
+
+La tabla \ref{tab:Sets} Muestra el resultado de los conjuntos de entrenamiento, así como del balanceo de clases.
+
+\begin{table}[!ht]
+    \centering
+    \caption{Estimación de conjuntos de entrenamiento/validación y balanceo de clases}
+    \label{tab:Sets}
+    \begin{tabular}{lllllll}
+        \hline
+        \multicolumn{3}{l}{70\% Entrenamiento} & \multicolumn{2}{l}{80\% Entrenamiento} & \multicolumn{2}{l}{90\% Entrenamiento}                         \\ \hline
+        Normal                                 & \multicolumn{2}{l}{3456}               & Normal                                 & 3949 & Normal  & 4443 \\ \hline
+        Anormal                                & \multicolumn{2}{l}{3456}               & Anormal                                & 3949 & Anormal & 4443 \\ \hline
+        \multicolumn{3}{l}{30\% Validación}    & \multicolumn{2}{l}{20\% Validación}    & 10\% Validación                        &                       \\ \hline
+        Normal                                 & \multicolumn{2}{l}{1481}               & Normal                                 & 987  & Normal  & 494  \\ \hline
+        Anormal                                & \multicolumn{2}{l}{1481}               & Anormal                                & 987  & Anormal & 494  \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsubsection[short]{Patron a Reconocer}
+Una vez establecidos los conjuntos de entrenamiento y validación es necesario identificar el patrón que la red neuronal deberá reconocer para determinar si una señal es \textbf{Normal} o \textbf{Anormal}.
+
+La figura \ref{fig:Norm_Rithm} muestra la forma de onda de un electrocardiograma con un ritmo normal, en este se pueden apreciar con claridad las ondas \textbf{P}, ondas \textbf{T} y el complejo \textbf{QRS}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.7\textwidth]{images/img31.png}
+    \caption{Ritmo cardíaco normal}
+    \label{fig:Norm_Rithm}
+\end{figure}
+
+Por otro lado, la figura \ref{fig:Abn_Rithm} muestra la forma de onda de una electrocardiograma en donde no se aprecia la onda \textbf{P}, esto indica un comportamiento anormal, el cual puede indicar algún tipo de anomalía en el corazón.
+
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.7\textwidth]{images/img32.png}
+    \caption{Ausencia de la onda \textbf{P} en el electrocardiograma}
+    \label{fig:Abn_Rithm}
+\end{figure}
+
+\subsubsection{Topología de la Red Neuronal Recurrente}
+Una vez definidos los aspectos anteriores, se debe especificar la topología de la red neuronal que se utilizará en el proceso de clasificación.
+
+La figura \ref{fig:Topo} muestra la topología de la red neuronal recurrente empleada en este caso. En la cual se pueden apreciar los siguiente elementos:
+
+\begin{enumerate}
+    \item Capa de Entrada:\\
+    Capa de entrada de tipo secuencial, permite la entrada de una secuencia de datos, en este caso una señal ECG.
+    \item Capa GRU\\ 
+    Contiene 16 Unidades Recurrentes con Compuertas. Además utilizan la función de transferencia Tangente Hiperbólica 
+    \item Primera capa oculta \\
+    Cuenta con 16 neuronas y utiliza la función de transferencia lineal.
+    \item Segunda capa oculta\\ 
+    Cuanta con dos neuronas, ademas emplea la función lineal como función de transferencia.
+    \item Capa Softmax\\
+    Normaliza las salidas de la capa anterior y las interpreta como probabilidades.
+    \item Capa de Clasificación\\
+    Es la capa de clasificación final, es usada para calcular la perdida y el rendimiento del modelo.
+\end{enumerate}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width = 1\textwidth]{images/img33.png}
+    \caption{Topología de la Red Neuronal Recurrente}
+    \label{fig:Topo}
+\end{figure}
+
+\subsubsection{Interface Gráfica}
+Para facilitar y en cierta forma acelerar el proceso de adquisición de señales se desarrollo una interface de usuario por medio de Matlab App Designer. La figura \ref{fig:Interface} muestra la interface de usuario creada. 
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width = 0.9\textwidth]{images/img36.png}
+    \caption{Interface de usuario}
+    \label{fig:Interface}
+\end{figure}
+
+La interface esta compuesta por tres secciones principales.
+
+\begin{enumerate}
+    \item Datos del paciente
+    \item Visualización de la forma de onda
+    \item Estado o clasificación
+\end{enumerate}
+
+
+\subsection[]{Experimentación}
+Una vez implementada la Red Neuronal Recurrente, se procede a la fase de experimentación en donde se emplearon los conjuntos de entrenamiento y validación antes definidos. En esta fase se realizaron iteraciones de entrenamiento, asi como el ajuste de los parámetros de la red para mejorar su precisión.
+
+La tabla \ref{tab:70-30} muestra los resultados para el entrenamiento y validación del conjunto 70\% entrenamiento y 30\% validación
+
+\begin{itemize}
+    \item 70\% Entrenamiento - 30\% Validación
+\end{itemize}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[!ht]
+    \centering
+    \caption{Experimentación conjuntos (70-30)}
+    \label{tab:70-30}
+    \resizebox{\columnwidth}{!}{%
+    \begin{tabular}{lllllllllllll}
+    \hline
+    Intento & Epocas & Iteraciones & GRU & 1 C\_O & 2 C\_O & softmax & clasificación & VP   & FP   & FN   & VN   & Exactitud \\ \hline
+    1       & 1      & 414         & 16  & 16     & 2      & Si      & Si            & 2954 & 567  & 2866 & 590  & 50.79     \\ \hline
+    2       & 10     & 4140        & 16  & 16     & 2      & Si      & Si            & 2429 & 1092 & 1869 & 1587 & 57.56     \\ \hline
+    3       & 30     & 12420       & 16  & 16     & 2      & Si      & Si            & 2170 & 791  & 2161 & 1295 & 57.37     \\ \hline
+    4       & 10     & 4140        & 32  & 32     & 2      & Si      & Si            & 2730 & 791  & 2161 & 1295 & 57.68     \\ \hline
+    5       & 20     & 8280        & 64  & 64     & 2      & Si      & Si            & 1680 & 1841 & 1216 & 2240 & 56.18     \\ \hline
+    \end{tabular}%
+    }
+    \end{table}
+
+    La tabla \ref{tab:80-20} muestra los resultados para el entrenamiento y validación del conjunto 80\% entrenamiento y 20\% validación
+    \begin{itemize}
+        \item 80\% Entrenamiento - 20\% Validación
+    \end{itemize}
+    % Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[!h]
+    \centering
+    \caption{Experimentación conjuntos (70-30)}
+    \label{tab:80-20}
+    \resizebox{\columnwidth}{!}{%
+    \begin{tabular}{lllllllllllll}
+    \hline
+    INTENTO & Epocas & Iteraciones & GRU & 1 C\_O & 2 C\_O & softmax & Clas\_Layer & VP   & FS   & FN   & VN   & Exactitud \\ \hline
+    1       & 5      & 2385        & 16  & 16     & 2      & SI      & SI          & 3367 & 651  & 3024 & 926  & 53.87     \\ \hline
+    2       & 10     & 4470        & 16  & 16     & 2      & SI      & SI          & 3535 & 438  & 3115 & 835  & 55.15     \\ \hline
+    3       & 1      & 477         & 16  & 16     & 2      & SI      & SI          & 98   & 3920 & 115  & 3835 & 49.35     \\ \hline
+    4       & 20     & 9540        & 16  & 16     & 2      & SI      & SI          & 1498 & 2520 & 957  & 2993 & 56.36     \\ \hline
+    5       & 30     & 14310       & 16  & 16     & 2      & SI      & SI          & 3507 & 511  & 3129 & 821  & 54.31     \\ \hline
+    6       & 30     & 14310       & 16  & 16     & 2      & SI      & SI          & 2793 & 1225 & 1901 & 2049 & 60.76     \\ \hline
+    7       & 30     & 14310       & 20  & 20     & 2      & SI      & SI          & 2933 & 1085 & 2192 & 1758 & 58.87     \\ \hline
+    8       & 30     & 14310       & 16  & 16     & 2      & SI      & SI          & 1813 & 2205 & 956  & 2994 & 60.32     \\ \hline
+    9       & 40     & 19080       & 16  & 16     & 2      & SI      & SI          & 1631 & 2387 & 1058 & 2892 & 56.76     \\ \hline
+    10      & 30     & 14310       & 32  & 32     & 2      & SI      & SI          & 2275 & 1743 & 1793 & 2157 & 55.62     \\ \hline
+    11      & 10     & 4770        & 16  & 32     & 2      & SI      & SI          & 3311 & 707  & 2767 & 1183 & 56.40     \\ \hline
+    12      & 20     & 9540        & 16  & 32     & 2      & SI      & SI          & 1911 & 2107 & 1256 & 2694 & 57.79     \\ \hline
+    \end{tabular}%
+    }
+    \end{table}
+
+
+    La tabla \ref{tab:90-10} muestra los resultados para el entrenamiento y validación del conjunto 90\% entrenamiento y 10\% validación
+    \begin{itemize}
+        \item 90\% Entrenamiento - 10\% Validación
+    \end{itemize}
+
+    % Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[!ht]
+    \centering
+    \caption{Experimentación conjuntos (90-10)}
+    \label{tab:90-10}
+    \resizebox{\columnwidth}{!}{%
+    \begin{tabular}{lllllllllllll}
+    \hline
+    Intento & Epocas & Iteraciones & GRU & 1 C\_O & 2 C\_O & softmax & Capa\_clasificación & VP   & FP   & FN   & VN   & EXACTITUD   \\ \hline
+    1       & 1      & 531         & 256 & 256    & 2      & Si      & Si                  & 378  & 4060 & 272  & 4166 & 51.19423164 \\ \hline
+    2       & 10     & 5310        & 256 & 256    & 2      & Si      & Si                  & 189  & 4249 & 126  & 4312 & 50.70977918 \\ \hline
+    7       & 10     & 5310        & 16  & 16     & 2      & Si      & Si                  & 3374 & 1064 & 2883 & 1555 & 55.53177107 \\ \hline
+    8       & 20     & 10620       & 16  & 16     & 2      & Si      & Si                  & 3535 & 903  & 2923 & 1515 & 56.89499775 \\ \hline
+    9       & 30     & 15930       & 16  & 16     & 2      & Si      & Si                  & 2737 & 1701 & 2130 & 2308 & 56.83866607 \\ \hline
+    10      & 10     & 5310        & 32  & 32     & 2      & Si      & Si                  & 1470 & 2968 & 1223 & 3215 & 52.78278504 \\ \hline
+    11      & 100    & 53100       & 32  & 32     & 2      & Si      & Si                  & 3416 & 1022 & 2940 & 1498 & 55.36277603 \\ \hline
+    12      & 10     & 79200       & 16  & 16     & 2      & Si      & Si                  & 2065 & 2373 & 787  & 3651 & 64.39837765 \\ \hline
+    13      & 10     & 79200       & 16  & 16     & 2      & Si      & Si                  & 392  & 4046 & 74   & 4364 & 53.58269491 \\ \hline
+    \end{tabular}%
+    }
+    \end{table}
+
+    Como se puede apreciar el conjunto de entrenamiento que obtuvo una mejor precision fue el conjunto de 90\% Entrenamiento y 10\% Validación, ya que se obtuvo un 64.39\% de precisión.
+
+
+
+

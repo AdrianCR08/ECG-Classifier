@@ -1,0 +1,679 @@
+\chapter{Revisión de la Literatura}
+\label{chap:Rev_Lit}
+
+\section{Propósito}
+El propósito de la siguiente revisión de la literatura es identificar y examinar las técnicas, métodos, así como las herramientas empleadas en la adquisición y procesamiento de señales ECG. De la misma forma reconocer tanto los avances, como las limitaciones que las técnicas de machine learning pueden presentar en la detección de patrones en señales electrocardiográficas, pero sobre todo hacer énfasis en las oportunidades e inconvenientes al desarrollar el sistema haciendo uso de tarjetas de adquisición de datos como lo es la placa Arduino DUE y el módulo amplificador AD8232.\\
+
+\section{Selección de la Literatura}
+Los criterios para la identificación de la literatura están basados en la jerarquía de fuentes de información en donde se encuentran las primarias, estas comprenden artículos de investigación. Secundarias, son aquellas que recopilan información de las fuentes anteriores en estas podemos encontrar libros de texto, informes y artículos de revista. Finalmente, las terciarias son principalmente compilaciones, en estas se encuentran enciclopedias y diccionarios. \\
+
+Para la elaboración de este proyecto solo se consideraron fuentes de información primarias y secundarias estableciendo la siguiente jerarquía. En primer lugar, libros, artículos de investigación y patentes, los cuales deben contar con las siguientes características:
+
+1. Actual, es decir con una longevidad no mayor a 5 años.
+
+2. En el caso de los artículos de investigación deben de haber pasado por el proceso de aceptación mismo que comprende la revisión por pares, haber sido corregido y finalmente ser publicado.
+
+\section{Análisis de la Literatura}
+
+    \subsection{El corazón}
+    De acuerdo con \citet[p. 36]{bib13} El corazón es el músculo más importante del cuerpo humano, el cual esta formado por \textbf{Aurículas}, tanto izquierda como derecha, \textbf{Ventrículos} izquierda y derecha y \textbf{fibras musculares} que de especializan en excitación y conducción.
+
+    La imagen \ref{fig:ant_corazón} muestra las partes antes mencionadas.
+
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=0.7\textwidth]{images/img1.png}
+        \caption{Anatomía del Corazón \citep{bib16}}
+        \label{fig:ant_corazón}
+    \end{figure}
+    
+    \subsection{Electrocardiograma}
+    Existen diversas formas de monitorear la actividad física del corazón, por ejemplo, \citet[p. 1]{bib2} menciona que ``El ECG es una representación gráfica de la actividad bioeléctrica del músculo cardíaco, por lo que un equipo de registro de ECG es prácticamente un voltímetro que realiza una función de registrador.''\\
+    En otras palabras un Electrocardiograma o ECG es un tipo de prueba médica empleada para evaluar el ritmo cardíaco y la actividad eléctrica del corazón.
+
+    Otra técnica similar al ECG es el Balistocardiograma, \citet[p. 1]{bib3} lo define como ``Un balistocardiograma (BCG) consiste en el registro del movimiento mecánico del corazón mediante la monitorización de la fuerza o aceleración desde el pecho o alternativamente tomando medidas remotas de la actividad de bombeo sanguíneo debido al latido cardíaco.''\\
+    Como se puede apreciar, ambas formas comparten algunas características, por ejemplo, ambas son consideradas como pruebas \textbf{no invasivas}, sin embargo, existe una diferencia sustancial entre estas.
+
+    \begin{itemize}
+        \item El \textbf{ECG} mide la \textbf{Actividad eléctrica} del corazón.
+        \item EL \textbf{BCG} mide las \textbf{vibraciones} producidas por la circulación sanguínea.
+    \end{itemize}
+
+De acuerdo con \citet[p. 365]{bib11}. Es posible diagnosticar varias anomalías en el corazón, ya que cualquier variación en la forma de onda, como aumento o disminución en los valores de de amplitud y periodo de tiempo, sumado a la ausencia de ondas características permite diagnosticar la presencia de alguna anomalía en el corazón.
+
+La imagen \ref{fig:ecg_normal} muestra una onda de electrocardiograma normal.
+
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/img2.png}
+        \caption{Forma de onda de ECG normal \citep{bib11}}
+        \label{fig:ecg_normal}
+    \end{figure}
+
+Otro aporte relacionado con un electrocardiograma normal es mostrado por \citet[p. 38]{bib13} el cual menciona que 
+\begin{quote}
+    ``Un electrocardiograma normal esta formado por una onda \textbf{P} un complejo \textbf{QRS} y una onda \textbf{T}. Con frecuencia, pero no siempre, el complejo \textbf{QRS} está formado por tres ondas separadas: La onda \textbf{Q}, la onda \textbf{R} y la onda \textbf{S}.\\
+    La onda \textbf{P} está producida por los potenciales eléctricos que se generan cuando se \textbf{despolarizan} las aurículas antes del comienzo de la contracción auricular. El complejo \textbf{QRS} está formado por los potenciales que se generan cuando de despolarizan los \textbf{ventrículos} antes de su contracción, es decir, a medida que la onda de despolarización se propaga por lo ventrículos.\\
+    Por lo tanto, tanto la onda \textbf{P} como los componentes del complejo \textbf{QRS} son las ondas de despolarización.\\
+    La onda \textbf{T} está producida por los potenciales que se generan cuando los ventrículos se recuperan del estado de despolarización. Este proceso normalmente aparece en el músculo ventricular entre $0.25$ y $0.35$ segundos después de la despolarización y la onda \textbf{T} se conoce como onda de \textbf{repolarización.}''
+\end{quote}
+
+    \subsection{Inteligencia Artificial}
+    Hoy en dia este termino es ampliamente usado, sin embargo, tal y como menciona \citet[p. 1066]{bib4}, ``A día de hoy es difícil encontrar una definición universal de lo que se conoce como IA. A menudo se refiere al campo de las ciencias de la computación que trata de imitar los procesos cognitivos humanos, la capacidad de aprendizaje y el almacenamiento de conocimiento''.
+
+    En otras palabras la Inteligencia Artificial (IA) consiste en algoritmos y modelos matemáticos que permiten a los sistemas y maquinas imitar elementos cognitivos como la memoria, el aprendizaje, el reconocimiento de patrones, etc. con el objetivo de tomar decisiones y resolver problemas complejos.
+
+    \subsection{Machine Learning}
+    También conocido como \textbf{Aprendizaje Automático} es un subconjunto de la inteligencia artificial en el que se diseñan sistemas capaces de aprender, en otras palabras, tiene la capacidad de reconocer patrones complejos para los humano, sin intervención de estos.
+
+    La imagen \ref{fig:diag_Venn} muestra un diagrama de Venn donde se expone al Aprendizaje Automático (Machine Learning) como un subconjunto tanto de la Inteligencia Artificial, como de la ciencia de datos (Data Science).
+
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/img3.pdf}
+        \caption{Diagrama de Venn con algunas tendencias actuales de la información}
+        \label{fig:diag_Venn}
+    \end{figure}
+    
+
+    Tanto \citep{bib4} como \citep{bib5} y \citep{bib11} concuerdan en que las técnicas de machine learning se pueden clasificar en  tres categorías; aprendizaje \textbf{supervisado}, el aprendizaje \textbf{no supervisado} y el aprendizaje por \textbf{refuerzo}, la tabla \ref{tab:tipos_apren}
+    expone las principales características de algunos tipos de aprendizaje.
+
+
+
+\begin{longtable}{cl}
+    \caption{Cuadro comparativo de los tipos de aprendizaje}
+    \label{tab:tipos_apren}\\
+    \hline
+    Tipo de Aprendizaje & \multicolumn{1}{c}{Principales Cracteristicas} \\ \hline
+    \endfirsthead
+    %
+    \endhead
+    %
+    Aprendizaje Supervisado & \begin{tabular}[c]{@{}l@{}}- Es el tipo de aprendizaje más empleado, ademas de obtener los mejores resultados.\\ - Se cuenta con un conjunto de datos etiquetados para entrenar el modelo.\\ - Se emplea en problemas de clasificación y regresión.\\ - Requiere de una gran cantidad de datos etiquetados.\end{tabular} \\ \hline
+    Aprendizaje No Supervisado & \begin{tabular}[c]{@{}l@{}}- Se enfoca en encontrar patrones y estructuras en los datos de entrada.\\ - Es ampliamente usado en problemas de clustering.\\ - Requiere un menor cantidad de datos.\\ - Suele ser más difícil de evaluar que el supervisado.\end{tabular} \\ \hline
+    Aprendizaje por Refuerzo & \begin{tabular}[c]{@{}l@{}}- Intenta aprender a traves de la retroalimentación de su entorno.\\ - Toma decisiones a parti de su estado actual.\\ - Recibe un puntaje en función de la precisión de sus decisiones.\end{tabular} \\ \hline
+    \end{longtable}
+
+    \subsection{Técnicas de Machine Learning}
+    % bib4, 5, 6, 11, 
+    Existen tantas técnicas de aprendizaje automático, que seria muy extenso explicar cada una, sin embargo \citep{bib4}, \citep{bib5}, \citep{bib6} y \citep{bib11} concuerdan en que estas técnicas pueden ser empleadas en la detección de tanto arritmias como enfermedades cardiovasculares. \\
+
+    La tabla \ref{tab:tec_aa} esta basada en la mostrada por \citet[p. 1068]{bib4}, expone las técnicas más populares de machine learning que se han usado en numerosas investigaciones.
+
+\begin{longtable}{ll}
+    \caption{Descripción de las técnicas de machine learning más empleadas en cardiología.}
+    \label{tab:tec_aa}\\
+    \hline
+    \multicolumn{1}{c}{Algoritmo} & \multicolumn{1}{c}{Descripción} \\ \hline
+    \endfirsthead
+    %
+    \endhead
+    %
+    Random Forest (RM) & Combinación de árboles predictores no correlacionados. \\ \hline
+    Gradient boosting & Combinación de árboles predictores escalonados. \\ \hline
+    Regresión logística (LR) & \begin{tabular}[c]{@{}l@{}}Análisis de regresión utilizado para predecir el \\ resultado de una variable categórica.\end{tabular} \\ \hline
+    \begin{tabular}[c]{@{}l@{}}Máquinas de\\ vectores de soporte (SVM)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Clasificador a través de construcción \\ de hiperplanos disociadores.\end{tabular} \\ \hline
+    \begin{tabular}[c]{@{}l@{}}K vecinos \\ más próximos (k-NN)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Estimación de la función de densidad de las variables\\ predictoras en función de las clases\end{tabular} \\ \hline
+    Análisis discriminate lineal & Generalización del discriminate lineal de Fisher \\ \hline
+    Clasificador bayesiano ingenuo & Clasificador probabilístico fundamentado en el teorema de Bayes \\ \hline
+    \end{longtable}
+
+
+    \subsection{Redes Neuronales}
+    Una definición de este concepto es proporcionado por \citet[p. 10]{bib13} el cual menciona que son un modelo computacional que intenta reproducir el comportamiento del cerebro.\\
+    En otras palabras una red neuronal es un modelo matemático que toma como base el funcionamiento del cerebro humano. Está compuesta por múltiples unidades llamadas \textit{neuronas}, las cuales están interconectadas y trabajan en conjunto para procesar información.
+
+    \subsubsection{Neurona Artificial}
+    Como ya se mencionó, la neurona artificial se puede considerar como la piedra angular de las redes neuronales, una definición más exacta es proporcionada por \citet[p. 13]{bib13}, quien menciona que 
+    \begin{quote}
+        ``La neurona artificial pretende simular las características más importantes de la neurona biológica, partiendo de un elemento simple de cálculo (vector de entrada) procedente del exterior o de otras neuronas conectadas, posee un estado interno, llamado nivel de activación que le permite cambiar de estado y proporcionar una única respuesta o salida.''
+    \end{quote}
+
+    La figura \ref{fig:neuron_art} muestra el modelo matemático de una neurona artificial.
+
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/img4.pdf}
+        \caption{Modelo matemático de una neurona artificial}
+        \label{fig:neuron_art}
+    \end{figure}
+
+    Como se puede apreciar en la figura \ref{fig:neuron_art} las neuronas de entrada están definidas por la expresión \ref{eq:entradas}.\\
+
+    \begin{equation}
+        X = \lbrack x_1, x_2, x_3, \cdots, x_n \rbrack
+        \label{eq:entradas}
+    \end{equation}
+
+    Donde\\
+    \noindent
+    $X$ es el vector de entradas que corresponden a las señales sinápticas de una neurona biológica.
+
+    Los pesos sinápticos o entradas ponderadas son descritos en la expresión \ref{eq:pesos}.
+
+    \begin{equation}
+        W = \lbrack w_1, w_2, w_3, \cdots, w_n \rbrack
+        \label{eq:pesos}
+    \end{equation}
+
+    Donde\\
+    \noindent
+    $W$ es un vector cuyos elementos representan la fuerza de una conexión sináptica.\\
+
+
+    La función de red o de \textbf{propagación} es el equivalente al cuerpo de la neurona, en esta se suman las \textbf{entradas} que han sido multiplicadas por los \textbf{pesos sinápticos}, dando como resultado una salida, misma que sera multiplicada por una función de \textbf{activación}, la cual produce una señal.
+
+    La expresión \ref{eq:art_neuron} muestra el modelo matemático descrito anteriormente
+
+    \begin{equation}
+        v_k = \sum_{j = 1}^{n} w_j x_j
+        \label{eq:art_neuron}
+    \end{equation}
+    
+    Donde\\
+    \noindent
+    $x_i$ son las entradas de la red.\\
+    $w_j$ son los pesos sinápticos\\
+    
+    Ademas de la definición, el autor menciona la existencia de tres tipos de neuronas de acurdo con su ubicación.
+
+    \begin{itemize}
+        \item \textbf{Neuronas de Entrada} las cuales reciben información del exterior, ademas de conformar la primera capa de la red o capa de \textbf{entrada}.
+        \item \textbf{Neuronas Ocultas} estas conforman un capa intermedia que procesa la información que fluye a través de la red.
+        \item \textbf{Neuronas de Salida} estas producen una respuesta después de que la información ha sido procesada por las neuronas ocultas.
+    \end{itemize}
+
+    \subsubsection{Función de Propagación}
+    Consiste en en transmitir la señal de entrada hacia adelante a través de las capas de la red hasta producir la salida. \citet[p. 12]{bib13}, la define como ``La función de propagación o función de red convierte los valores de entrada en uno solo llamado típicamente el potencial que en la neurona biológica equivaldrá al total de las señales que le llegan a la neurona por sus dendritas.'' Esta se encuentra denotada como $Net_j$ y es expresada en la expresión \ref{eq:func_prop}, la cual representa la suma ponderada de las entradas por los pesos sinápticos.\\
+
+    \begin{equation}
+        v_k = \sum(w_{ji}\times x_i(t))
+        \label{eq:func_prop}
+    \end{equation}
+
+    Donde\\
+    \noindent
+    $v_k$ es la función de propagación.\\
+    $w_{ji}$ son los pesos sinápticos.\\
+    $x_{i}$ son las entradas de la red.\\
+
+    \subsubsection{Funciones de Activación}
+
+    A diferencia de la función de propagación, la \textbf{función de activación} se utiliza para determinar la salida de una neurona en función de sus entradas. \citet[p. 25]{bib18} menciona que ``La elección de la función de activación es una parte fundamental del diseño de redes neuronales.''\\
+
+    Tanto \citep[p. 12]{bib13} como \citep[p. 26]{bib18} concuerdan en que existen diversos tipos de funciones de activación los cuales serán descritos de forma individual.
+
+    \begin{itemize}
+        \item Función Lineal.
+    \end{itemize}
+
+    También conocida como función \textbf{identidad} es la forma más básica, la cual es utilizada comúnmente en los nodos de salida sobre todo cuando el objetivo es un valor real. La expresión \ref{eq:fun_lin} muestra una función de activación lineal.
+
+    \begin{equation}
+        \Phi(v) = v
+        \label{eq:fun_lin}
+    \end{equation}
+
+    Donde\\
+    \noindent
+    $\Phi(v)$ es la función de activación.\\
+    $v$ es la salida de la neurona sin modificaciones.
+
+    \begin{itemize}
+        \item Función Sigmoidal.
+    \end{itemize}
+
+    Este tipo de función es usada comúnmente en las capas ocultas de un red neuronal profunda.\\
+    La expresión \ref{eq:fun_sig} muestra la función de activación sigmoidal.
+
+    \begin{equation}
+        \Phi(v) = \frac{1}{1 + e^{-v}}
+        \label{eq:fun_sig}
+    \end{equation}
+
+    Donde\\
+    \noindent
+    $\Phi(v)$ es la función de activación.\\
+    $(v)$ es la entrada de la neurona.\\
+
+    \begin{itemize}
+        \item Función Gaussiana
+    \end{itemize}
+
+    Este tipo de funciones son utilizadas en redes donde las entradas y salidas son continuas y tienen una distribución normal.\\
+    La expresión \ref{eq:fun_gauss} muestra la definición matemática de la función gaussiana.
+
+    \begin{equation}
+        \Phi(v) = \displaystyle e^{\left( -\frac{(v-c)^2}{2\sigma^2} \right)}
+        \label{eq:fun_gauss}
+    \end{equation}
+
+    Donde\\
+    $\Phi(v)$ es la función de activación\\
+    $v$ es la entrada de la neurona.\\
+    $c$ es el centro de la curva.\\
+    $\sigma$ controla el ancho de la curva.\\
+    
+    \begin{itemize}
+        \item Función Escalón 
+    \end{itemize}
+
+    Este tipo de funciones son ampliamente utilizadas en redes neuronales binarias gracias a su simplicidad y a su no linealidad.
+    La expresión \ref{eq:fun_step} muestra el modelo matemático de una función escalón.
+
+    \begin{equation}
+        \Phi(v) = \begin{cases}
+            0, & \text{si } v < 0 \\
+            1, & \text{si } v \geq 0
+            \end{cases}
+        \label{eq:fun_step}
+    \end{equation}
+    Donde\\
+    $\Phi(v)$ es la función de activación.\\
+    $v$ es la entrada de la neurona.
+    
+
+    La figura \ref{fig:act_fun} muestra las funciones de activación antes detalladas.\\
+
+
+    \begin{figure}[hb!]
+        \centering
+        \subfloat[Lineal]{
+            \includegraphics[width=0.40\textwidth]{images/Fun_Ac_Lin.pdf}
+            }
+            \hspace{0.01\linewidth}
+            \subfloat[Sigmoidal]{
+            \includegraphics[width=0.40\textwidth]{images/Fun_Ac_Sig.pdf}
+            }
+            \hspace{0.01\linewidth}
+            \subfloat[Gaussiana]{
+            \includegraphics[width=0.40\textwidth]{images/Fun_Ac_Gauss.pdf}  
+            }
+            \hspace{0.01\linewidth}
+            \subfloat[Escalón]{
+            \includegraphics[width=0.40\textwidth]{images/Fun_Ac_Step.pdf}
+            }
+        \caption{Funciones de activación más comunes}
+        \label{fig:act_fun}
+    \end{figure}
+
+    
+    \pagebreak[2cm]
+    \subsubsection{Red Neuronal Monocapa}
+
+    Como su nombre sugiere, son redes neuronales de una sola capa, \citet[p.16]{bib13}, las define como ``Son redes de una sola capa, establecen conexiones laterales entre las neuronas que pertenecen a la única que constituye a la red, también pueden existir las conexiones autorrecurrentes (salida de una neurona conectada a su propia entrada)''.
+
+    La figura \ref{fig:red_mono} muestra el modelo matemático de una red neuronal monocapa.
+
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=0.6\textwidth]{images/img5.pdf}
+        \caption{Modelo matemático de una red neuronal monocapa}
+        \label{fig:red_mono}
+    \end{figure}
+    
+    La salida de la red monocapa esta expresada en la ecuación
+
+    \begin{equation}
+        y_j = f(\sum_{i = 0}^{n}w_{ji}x_i + b)
+        \label{eq:red_mono}
+    \end{equation}
+
+    Donde
+    \begin{itemize}
+        \item $x_i$ es el elemento $i$-ésimo del vector de entrada de la red neuronal,
+        \item $w_{ji}$ es la matriz de pesos de la red neuronal,
+        \item $b$ es el bias de la neurona,
+        \item $f$ es una función de activación neuronal.
+    \end{itemize}
+
+    \subsubsection{Red Neuronal Profunda}
+
+    Una Red Neuronal Profunda o Deep Neural Network (DNN) es un tipo de red neuronal diseñada para aprender patrones complejos en los datos de entrada. Adicionalmente, \citet[p. 731]{bib6} menciona que las redes profundas tienes más de una capa de cálculo, las cuales son comúnmente conocidas como \textbf{capas ocultas}.
+
+    La figura \ref{fig:deep_red} muestra la topología de una red profunda.
+
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/img6.pdf}
+        \caption{Topología de una Red Neuronal Profunda}
+        \label{fig:deep_red}
+    \end{figure}
+
+    Para comprender este tipo de red neuronal se plantea una instancia de entrenamiento de la forma ($X, y$), donde $X = [x_1, x_2, x_3, \cdots, x_d]$ que contiene $n$ variables de características y $y \in [0, 1]$, donde $y$ es el valor observado. El IL \textit{Input Layer} o \textit{capa de entrada} contiene $d$ neuronas con pesos $W = [w_1, w_2, w_3, \cdots, w_d]$. El valor de salida de la neurona es calculado usando la función lineal descrita en la expresión \ref{eq:lin_fun}.
+
+    \begin{equation}
+        y = h(z)
+        \label{eq:lin_fun}
+    \end{equation}
+
+    Donde\\
+    $h$ es la \textbf{función de activación}.
+
+    La salida de cada neurona se describe en la expresión \ref{eq:sal_neuro}.
+    \begin{equation}
+        z = \sum_{j = 1}^{d}w_jx_j + b
+        \label{eq:sal_neuro}
+    \end{equation}
+
+    En función de un \textbf{umbral}, según la \textbf{función de activación} utilizada. Cada instancia de los datos se introduce en la red neuronal y los pesos $W$ se actualizan en función de error ($y-\hat{y}$).\\
+
+    La expresión \ref{eq:peso_sin} se utiliza para calcular los pesos sinápticos de las siguientes neuronas.
+
+    \begin{equation}
+        W = W + \alpha (y-\hat{y})X
+        \label{eq:peso_sin}
+    \end{equation}
+
+    Donde
+    \begin{itemize}
+        \item $y$ es la predicción 
+        \item $\alpha$ es la taza de aprendizaje de la red neuronal.
+    \end{itemize}
+
+    \subsubsection{Redes Neuronales Recurrentes}
+Las Redes Neuronales Recurrentes (RNN por sus siglas en inglés, Recurrent Neural Network), son un tipos de red neuronal artificial especializada en procesas secuencias de datos. \citep[p. 19]{bib21} menciona que las Redes Neuronales Recurrentes conforman una familia de modelos diseñados para procesar datos de estructura secuencial. Ademas de resaltar su potencia por tener un estado oculto con una dinámica no lineal que permite a la red recordar y procesar información.\\
+
+Adicionalmente, \citet[p. 51]{bib22} aclara que ``Existen tres tipos de tareas esenciales que se pueden realizar con este tipo de redes:
+\begin{itemize}
+    \item Reconocimiento de secuencias:
+    Se produce un patrón de salida particular cuando se especifica una secuencia de entrada.
+    \item Reproducción de secuencias:
+    La red debe ser capaz de generar el resto de una secuencia cuando ve parte de ella.
+    \item Asociación temporal:
+    En este caso una secuencia de salida particular se debe producir en respuesta a una secuencia de entrada especifica.''
+\end{itemize}
+
+Existen dos categorías para las redes neuronales recurrentes; \textbf{parcial} y/o \textbf{totalmente} recurrente.\\
+La primera consiste en aquellas en donde cada neurona puede estar conectada a cualquier otra y sus conexiones recurrentes son variables.
+La segunda categoría es aquella en donde sus conexiones recurrentes son fijas, siendo esta ultima la forma más usual para reconocer o reproducir secuencias.
+
+Adicionalmente, \citep[p. 51]{bib22}, aclara que existen 5 clases de algoritmos de aprendizaje, los cuales son:
+\begin{enumerate}
+    \item Backpropagation Through Time (BPTT)
+    \item Forward Propagation o Rea/ Time Recurrent Learning (RTRL)
+    \item Fast Forward Propagation
+    \item Funciones de Green
+    \item Actualizaci6n en Bloque (Block Update)
+\end{enumerate}
+
+La figura \ref{fig:RNN} muestra la estructura básica de una red neuronal recurrente
+
+\begin{figure}[!h]
+    \includegraphics[width = 1\textwidth]{images/img17.pdf}
+    \caption{Estructura básica de una RNN}
+    \label{fig:RNN}
+\end{figure}
+
+La ecuación \ref{eq:RNN_eqn} muestra la forma generalizada para las relaciones de recurrencia.
+
+\begin{equation}
+    h(t) = f(h^{t-1}, x^t)
+    \label{eq:RNN_eqn}
+\end{equation}
+
+Donde:\\
+$x^{(t)}$ representa la entrada de una instancia de tiempo en particular.\\
+$h^{(t-1)}$ es una representación de los aspectos relevantes de la secuencia pasada de entradas hasta $t$
+
+    \subsubsection{Unidad Recurrente con Compuertas}
+    Las redes \textbf{GRU} (Gated Recurrent Unit) son una variación de las RNN, las cuales utilizan una denominada \textit{puerta de actualización} y una \textit{puerta de reinicio}, de acuerdo con \citep[p. 20]{bib23}, menciona que estas puertas son dos vectores que deciden que información debe pasar a la salida.
+
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics[width=0.6\textwidth]{images/img18}
+        \caption{Estructura de una Unidad Recurrente con Compuertas \citep[p. 20]{bib23}}
+        \label{fig:GRU}
+    \end{figure}
+
+    Dada una secuencia de entrada en un instante de tiempo $t$, denominada $x_t$ y el estado oculto anterior $a^t-1$. 
+
+    La ecuación \ref{eqn:reset} muestra la función de la compuerta de reinicio 
+
+    \begin{equation}
+        r(t) = \sigma(W_{rx}x(x_t)) + U_{rx}h(t-1) + b_r
+        \label{eqn:reset}
+    \end{equation}
+
+    Donde\\ 
+    $W_r $ y $U_r$ son matrices de pesos.\\
+    $x_t$ es la entrada en el instante de tiempo $t$\\
+    $h_t$ es es estado oculto anterior.\\
+    $\sigma$ es la función de activación sigmoide.\\
+
+    La ecuación \ref{eqn:update} muestra la función de la compuerta de actualización
+
+\begin{equation}
+        C_{t-1} = \sigma(W_{zx}x(x_t)) + U_{zx}h(t-1) + b_z
+        \label{eqn:update}
+    \end{equation}
+
+    Donde\\ 
+    $W_z $ y $U_z$ son matrices de pesos.\\
+    $x_t$ es la entrada en el instante de tiempo $t$\\
+    $h_t$ es es estado oculto anterior.\\
+    $\sigma$ es la función de activación sigmoide.\\
+
+    La ecuación \ref{eqn:candidate} muestra la función del estado candidato
+
+\begin{equation}
+        C_t =tanh(W_{sx}x(t) + r(t) \cdot (U_{sx}h(t-1)) + b_s)
+        \label{eqn:candidate}
+    \end{equation}
+
+    Donde\\
+    $W_s $ y $U_s$ son matrices de pesos.\\
+    $x_t$ es la entrada en el instante de tiempo $t$\\
+    $h_t$ es es estado oculto anterior.\\
+
+    \subsection{Métricas de Evaluación}
+    En el trabajo realizado por \citet[p. 732]{bib6}, en donde el modelo empleado fue una red neuronal profunda, se menciona el uso de métricas de evaluación tales como \textbf{Precisión}, \textbf{Sensibilidad}, \textbf{Especificidad}, \textbf{Clasificación Errónea} y \textbf{Puntuación F1}.\\
+
+    \begin{itemize}
+        \item \textbf{Precisión}\\
+        Se define como la capacidad de un modelo para diferenciar correctamente los casos sanos de los no sanos.\\
+
+        La expresión \ref{eq:accuracy} es usada para calcular la precisión del modelo.
+        \begin{equation}
+            P = \frac{TP + TN}{TP + TN + FP + FN}
+            \label{eq:accuracy}
+        \end{equation}
+
+        En donde
+        \begin{itemize}
+            \item $P$ es la precisión a calcular.
+            \item $TP$ son los valores \textit{verdaderos positivos} \textbf{True Positive}
+            \item $TN$ son los valores \textit{verdaderos negativos} \textbf{True Negative}
+            \item $FP$ son los valores \textit{falsos positivos} \textbf{False Positive}
+            \item $FN$ son los valores \textit{falsos negativos} \textbf{False Negative}
+        \end{itemize}
+
+    \item \textbf{Sensibilidad}\\
+        Es la capacidad de un modelo para identificar correctamente los casos no sanos.\\
+
+        La expresión \ref{eq:Sensitivity} es utilizada para calcular la sensibilidad del modelo.
+        
+        \begin{equation}
+            S = \frac{TP}{TP + FN}
+            \label{eq:Sensitivity}
+        \end{equation}
+        Donde\\ 
+        \noindent
+        $S$ es la sensibilidad del modelo.
+
+        \item \textbf{Especificidad}
+        Es la capacidad de d un modelo para identificar correctamente los casos sanos.\\
+
+         La expresión \ref{eq:specifity} es empleada para determinar la especificidad del modelo.
+
+         \begin{equation}
+            E = \frac{TN}{FP + FN}
+            \label{eq:specifity}
+         \end{equation}
+
+         Donde
+         \noindent
+         $E$ es la especificidad del modelo
+
+         \item \textbf{Clasificación Errónea}
+        Es el indice de errores en la clasificación de los datos.
+
+        La expresión \ref{eq:miss_clas} es utilizada para calcular la clasificación errónea.
+
+        \begin{equation}
+            CE = \frac{FP + FN}{TP + TN + FP + FN}
+            \label{eq:miss_clas}
+        \end{equation}
+
+        \item \textbf{Puntaje F1}
+        La precisión puede no ser siempre la mejor métrica, ya que falsos negativos y falsos positivos son considerados. El puntaje F1 es útil cuando la distribución es uniforme.
+
+        La expresión \ref{eq:f1score} es usada para determinar el puntaje F1 del modelo.
+
+    \begin{equation}
+        F1 = \frac{TP}{TP + 0.5(FP + FN)}
+        \label{eq:f1score}
+    \end{equation}
+
+    \end{itemize}
+
+    \subsection{Procesamiento de Señales}
+    El primer paso para la detección de características presentes en un electrocardiograma, inicia con el filtrado del ruide presente en estas. En trabajos como \citep[3]{bib10} y \citep[p. 366]{bib11} se emplean algunos filtros, dentro de los que destacan \textbf{filtro pasa bajas}, \textbf{filtro pasa altas} y \textbf{filtro de Butterwort}. 
+
+    \begin{itemize}
+        \item \textbf{Filtro pasa bajas}\\
+        Es un filtro que permite el paso de frecuencias por debajo de cierto rango de corte, con el objetivo de atenuar o bloquear las frecuencias por encima de esta frecuencia.
+
+        La expresión \ref{eq:fil_pas_baj} muestra la función de transferencia de de un filtro pasa bajas de primer orden.
+
+        \begin{equation}
+            H(s) = \frac{1}{1 + \frac{s}{\omega_c}}
+            \label{eq:fil_pas_baj}
+        \end{equation}
+
+        Donde
+        \noindent
+        $s$ es la variable compleja de Laplace.\\
+        $\omega_c$ es la frecuencia de corte del filtro.\\
+        $H(s)$ es la función de transferencia del filtro.\\
+
+        \item \textbf{Filtro pasa altas}\\
+        Este tipo de filtros permite el paso de frecuencias por encima de cierto rango de corte, de igual forma atenúa las frecuencias por debajo de esta frecuencia.
+
+        La expresión \ref{eq:fil_pas_alt} describe la función de transferencia de un filtro pasa altas.
+
+        \begin{equation}
+            H(s) = \frac{s}{s + \omega_c}
+            \label{eq:fil_pas_alt}
+        \end{equation}
+        
+        Donde\\
+        \noindent
+        $s$ es la variable compleja de Laplace.\\
+        $\omega_c$ es la frecuencia de corte de filtro.\\
+        $H(s)$ es la función de transferencia del filtro.\\
+
+        \item \textbf{Filtro de Butterwort}\\
+        Es un tipo de filtro pasa bajas el cual emplea una frecuencia plana en la banda de paso y atenúa suavemente fuera de la banda de paso.
+
+        La expresión \ref{eq:fil_butt} muestra la función de transferencia de un filtro de Butterwort.
+
+        \begin{equation}
+            H(s) = \frac{1}{\biggl[1 + \biggl(\frac{s}{\omega_c}\biggr)^{2n}\biggr]^{\frac{1}{2}}}
+            \label{eq:fil_butt}
+        \end{equation}
+
+        Donde\\
+        \noindent
+        $s$ es la variable compleja de Laplace.\\
+        $\omega_c$ es la frecuencia de corte del filtro.\\
+        $n$ es orden del filtro.\\
+        
+
+    \end{itemize}
+    A diferencia del caso anterior, la obtención de las características presentes en la señal se empleo una técnica diferente la cual es la \textbf{transformada de Wavelet}, De acuerdo con \citet[p. 271]{bib9} la transformada de Wavelet consiste en la convolución de un señal $f(t)$ con una función Wavelet madre $\varphi(t)$ desplazada en el tiempo por un parámetro de traslación $b$ y dilatada por un parámetro de escala $a$.
+
+    La expresión \ref{eq:tra_wavelet} muestra la implementación de la transformada de Wavelet.
+
+    \begin{equation}
+        Wf(a, b) = \int_{-\infty}^{\infty} f(t) {\frac{1}{\sqrt[2]{a}}\varphi \times \biggl(\frac{t-b}{a}\biggr)dt} : a, b \in \mathbb{R}, a \ne 0
+        \label{eq:tra_wavelet}
+    \end{equation}
+
+    Donde\\
+    \noindent
+    $\varphi * (t)$ es el complejo conjugado de la función de wavelet $\varphi(t)$ y se comprime o expande dependiendo del parámetro de escala $a$.
+
+    \subsection{Placas de Desarrollo}
+
+    \subsubsection{FPAA (Field Programmable Analog Array)}
+    Una FPAA, en español, ``Matriz Analógica Programable en Campo'', se trata de un circuito integrado el cual consta de bloques analógicos interconectados. Ademas de su definición, en el trabajo realizado por \citet[p. 3]{bib2} se menciona que se empleó una FPAA para el procesamiento de se señales ECG, y algunas otras tareas relacionadas con este propósito, dentro de las que se encuentran: 
+    
+    \begin{itemize}
+        \item Amplificación de la señal.
+        \item Filtrado de la señal.
+        \item Digitalización de la señal.
+    \end{itemize}
+
+    Todo esto con la finalidad de crear un microsistema electrónico capaz de adquirir y registra señales cardíacas.
+
+    La figura \ref{fig:FPAA} muestra un ejemplo de una FPAA (Field Programmable Analog Array)
+
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=0.25\textwidth]{images/img7.jpg}
+        \caption{El FPAA AN221E04 de Anadigm \citep{bib19}}
+        \label{fig:FPAA}
+    \end{figure}
+    
+    \subsubsection{Arduino}
+    Esta es quizás la plataforma de desarrollo de desarrollo más popular para el desarrollo de sus sistemas de adquisición de señales electrocardiográficas, ya que tanto \citep{bib9} como \citep{bib10} y \citep{bib12} emplearon placas Arduino Uno en alguna de las fases de adquisición de señales de sus proyectos.\\
+    \citet[p. 3]{bib12} menciona que ``Arduino es una plataforma de creación de prototipos de código abierto basada en hardware y software fáciles de usar.''. Adicionalmente, esta son capaces de leer entradas y transformarlas en una salida.
+
+    Dentro de las etapas del proceso de adquisición de señales ECG, \citet[p. 273]{bib12} declara que se implemento un programa en la tarjeta Arduino Uno para la lectura y envío de las señales almacenadas en memoria cada 2$ms$.
+
+    Finalmente \citet[p. 10]{bib10} expresa que empleo esta tarjeta para la conversión analógica a digital y la transmisión en serie de la señal ECG.
+
+    La figura \ref{fig:Arduino} muestra una placa Arduino Uno.
+
+    \begin{figure}[ht!]
+        \centering
+        \includegraphics[width=0.45\textwidth]{images/img8.jpg}
+        \caption{Placa Arduino uno con el microcontrolador ATmega328P}
+        \label{fig:Arduino}
+    \end{figure}
+    
+
+\section{Áreas de Oportunidad}
+
+Una vez analizada la literatura se determinó que el proyecto propuesto presenta algunas ventajas y/o mejoras con respecto a los trabajos previamente consultados, sin embargo en esta sección se explicaran a detalle cada una de las areas de oportunidad encontradas al momento de realizar la revisión de la literatura. 
+
+\begin{enumerate}
+    \item Del trajo realizado por \citep{bib1} se determinó que carece de funciones relacionadas al análisis y procesamiento de señales, en este aspecto, una opción es implementar algoritmos de Inteligencia Artificial, más específicamente de Machine Learning para realizar la clasificación de las señales ECG normales y anormales.
+    \item En el caso del articulo escrito por \citep{bib2} se puede apreciar que la visualización de la forma de onda depende del envío inalámbrico de datos entre el sistema de adquisición y el equipo de computo, en donde una limitante es el tiempo de envió entre estos. Por lo tanto realizar una transferencia serial y un rediseño de la interfaz que permita mostrar dos o más derivaciones de electrocardiograma mejorarían el desempeño.
+    \item En cuanto a procedimiento mostrado en la patente de \citep{bib3}, probar con diferentes técnicas de filtrado podría mejorar el resultado de la fase de análisis de señales cardíacas.
+    \item En cuanto a la propuesta mostrada por \citep{bib5}, analizar con técnicas exploratorias las señales ECG para resaltar características implícitas en la señal, para posteriormente clasificarlas.
+    \item  En el caso de \citep{bib6}, implementar una red neuronal para clasificar las señales ECG en normales y anormales, evaluando los resultados obtenidos para obtener un modelo eficiente.
+    \item En el caso de \citep{bib7}, conocer las enfermedades cardiovasculares más comunes para considerarlas en el entrenamiento del modelo, lo que permitirá una mejor precisión al momento de clasificar.
+    \item En relación con \citep{bib8}, implementar herramientas especializadas como MATLAB para aplicar filtros, con el objetivo de atenuar la señales.
+    \item Del articulo realizado por \citep{bib9} se encontró que realizar análisis en tiempo real a la forma de onda generada por el electrocardiograma puede mejorar la capacidad de diagnostico.
+    \item En cuanto al trabajo realizado por \citep{bib10}, realizar evaluaciones a los modelos implementados permitiría escoger aquellos con los mejores resultados.
+    \item En cuanto a \citep{bib11}, se determinó que enfocar el estudio a un numero concreto de arritmias permitirá una respuesta más certera. En un futuro, sera posible incrementar el numero de arritmias que el modelo clasificará.
+    \item En relación con \citep{bib12}, una opción sería implementar algoritmos que permitan la clasificación se señales aún con ruido implícito en la señal.
+    \item Finalmente, en el trabajo realizado por \citep{bib4} una area de oportunidad es eliminar la dependencia en cuanto a la cantidad de los datos de entrenamiento, enfocándose mayormente en la calidad de estos. 
+\end{enumerate}
+
+Adicionalmente. la tabla \ref{tab:Mat_Ref} muestra la matriz de referencias, en donde se exponen los trabajos que conforma la literatura y sobre todo los métodos y areas de oportunidad.
+
+\input{Matriz de Referencia.tex}
+
+\section{Conclusión de la Revisión}
+Una vez realizada la revisión de la literatura y la exposición de las areas de oportunidad es posible determinar que el proyecto presenta algunas varios hallazgos trascendentes.\\
+En primer lugar, el procedimiento de adquisición de señales por medio de la placa Arduino DUE y el amplificador AD8232, tiene una alta probabilidad de éxito, tanto por las especificaciones de los componentes, como los algoritmos empleados para realizar esta tarea. En cuanto al procedimiento de filtrado existe la incognita acerca de que herramienta emplear, ya que algunas fuentes sugieren usar la plataforma de desarrollo Arduino IDE, mientras que otras reconocen que MATLAB es una alternativa superior.
+Adicionalmente, ua brecha brecha importante en a literatura es la clasificación binaria de las señales ECG, es decir, clasificar una señal de acuerdo a su forma de onda y determinar si esta es normal o anormal, dicha brecha se pretende cubrir en el desarrollo de esta investigación.
+
+En conclusión la revisión de la literatura a demostrado que los componentes físicos (hardware) compuestos por la placa Arduino DUE y el amplificador AD8232, tienen la capacidad de adquirir señales ECG con calidad y precisión, de la misma forma, los componentes de software poseen una alta probabilidad de éxito en cuanto a la adquisición de características presentes en la señal y su posterior clasificación.
+
+%\section{Matriz de Referencia}
+\label{sec:Mat_Ref}

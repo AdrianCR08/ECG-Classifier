@@ -1,0 +1,81 @@
+\chapter{Resultados}
+\label{chap:results}
+Como ya se mencionó la \textbf{Exactitud} alcanzada por el modelo en la fase de entrenamiento es del $64.39\%$, en esta sección se abordara a detalle el resultado obtenido por el modelo.
+
+La figura \ref{fig:Mat_Conf} muestra la matriz de confusión del modelo de clasificación.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width = 0.7\textwidth]{images/img34.png}
+    \caption{Matriz de confusión del modelo (Entrenamiento)}
+    \label{fig:Mat_Conf}
+\end{figure}
+
+La Exactitud del modelo esta dada por la formula \ref{eq:accuracy}
+
+\begin{equation}
+    E = \frac{2065 + 3651}{2065 + 3651 + 787 + 2373} \times 100 = 64.3983
+\end{equation}
+
+Es decir, el modelo fue capaz de clasificar un 64.39\% de las señales ECG en la categoría correcta en el conjunto de datos de entrenamiento.
+
+La Sensibilidad del modelo esta dada por \ref{eq:Sensitivity}
+
+\begin{equation}
+    S = \frac{2065}{2065 + 787} \times 100 = 34.2795
+\end{equation}
+
+Es decir, el modelo ha sido capaz de clasificar $34.27\%$ de las muestras positivas en relación con el total de muestras positivas del conjunto.
+
+La Especificidad del modelo esta dada por \ref{eq:specifity}
+
+\begin{equation}
+    Es = \frac{3651}{3651 + 2373} \times 100 = 60.6075
+\end{equation}
+
+En otras palabras, el modelo clasificó un $60.6075\%$ de muestras negativas en relación con el total.
+
+
+En cuanto a los resultados de la \textbf{Validación} alcanzada por el modelo es del $61.93\%$, en esta sección se abordara a detalle el resultado obtenido por el modelo.
+
+La figura \ref{fig:Mat_Conf_Val} muestra la matriz de confusión del modelo de clasificación.
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width = 0.7\textwidth]{images/img35.png}
+    \caption[]{Matriz de confusión del modelo (Validación)}
+    \label{fig:Mat_Conf_Val}
+\end{figure}
+
+
+\begin{itemize}
+    \item Exactitud
+\end{itemize}
+
+\begin{equation}
+    E = \frac{210 + 397}{210 + 397 + 93 + 280} \times 100 = 61.9387
+\end{equation}
+
+Es decir, el modelo fue capaz de clasificar un $61.93\%$ de las señales ECG en la categoría correcta en el conjunto de datos de entrenamiento.
+
+\begin{itemize}
+    \item Sensibilidad
+\end{itemize}
+
+\begin{equation}
+    S = \frac{210}{210 + 93} \times 100 = 69.3096
+\end{equation}
+
+Es decir, el modelo ha sido capaz de clasificar $69.30\%$ de las muestras positivas en relación con el total de muestras positivas del conjunto en la fase de validación.
+
+\begin{itemize}
+    \item Especificidad
+\end{itemize}
+
+\begin{equation}
+    Es = \frac{397}{397 + 280} \times 100 = 58.6410
+\end{equation}
+
+En otras palabras, el modelo clasificó un $58.64\%$ de muestras negativas en relación con el total en la fase de validación.
+
+

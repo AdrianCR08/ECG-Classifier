@@ -1,0 +1,222 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Maquetado general, no modificar si no es necesario
+\documentclass[twoside]{report}
+
+\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath}
+%\usepackage[]{amssymb}
+\usepackage[english, spanish, mexico]{babel}
+\selectlanguage{spanish}
+
+%\usepackage[round,authoryear,semicolon]{natbib}
+\usepackage[]{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{kluwer}
+\usepackage[nottoc]{tocbibind}
+%plainnat, abbrvnat
+%\citet{} 	Textual citation
+%\citep{} 	Parenthetical citation
+%\citet*{} 	Same as \citet but if there are several authors, all names are printed
+%\citep*{} 	The same as \citep but if there are several authors, all names are printed
+%\citeauthor{} 	Prints only the name of the authors(s)
+%\citeyear{} 	Prints only the year of the publication. 
+
+\addto\captionsspanish{
+\renewcommand\bibname{Referencias}
+}
+
+%\usepackage{apacite}
+
+% uso con biber
+%\usepackage[backend=biber,style=authoryear,sorting=ynt]{biblatex}
+%\bibliography{biblio}
+
+%\usepackage{blindtext}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    citecolor=blue,      
+    urlcolor=blue,
+    pdftitle={Reporte ICO},
+    %pdfpagemode=FullScreen,
+}
+
+\usepackage{layout}
+
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+\usepackage[tableposition = top]{caption}
+\captionsetup{font={small,it}, labelfont={small,it}}
+
+\usepackage{geometry}
+\geometry{
+ letterpaper,
+ left=25mm,
+ top=25mm,
+ right=25mm,
+ bottom=25mm,
+ %asymmetric
+}
+
+\usepackage{setspace}
+\onehalfspace
+\setlength{\parskip}{6pt}
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep, topsep=0pt}
+\setlist[enumerate]{noitemsep, topsep=0pt}
+%\doublespacing
+%\usepackage[fontsize=13]{scrextend}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancypagestyle{plain}{}
+\fancyhf{}
+\fancyhead[LE]{\includegraphics[width=1.2cm]{logo}}
+\fancyhead[CE]{\hspace{-5cm}\vspace{0.2cm}\large{Universidad Aut\'onoma del Estado de M\'exico}}
+\fancyhead[RO]{\vspace{0.2cm}\large{Centro Universitario UAEM Atlacomulco}}
+\fancyfoot[RO,LE]{P\'ag. \thepage}
+\fancyfoot[LO]{\hspace{0cm} Gestión de Proyectos de Investigación}
+\fancyfoot[RE]{Ingenier\'ia en Computaci\'on}
+\renewcommand{\headrulewidth}{0.6pt}
+\renewcommand{\footrulewidth}{0.6pt}
+\setlength{\headheight}{37pt}
+\setlength{\footskip}{20pt}
+
+\providecommand{\keywords}[1]
+{
+%  \vspace{0.5cm}
+  \noindent
+  \small	
+  \textbf{\textit{Keywords: }} #1
+}
+
+\providecommand{\keywordssp}[1]
+{
+ % \vspace{0.5cm}
+  \noindent
+  \small	
+  \textbf{\textit{Palabras clave: }} #1
+}
+
+%\usepackage{authblk}
+%\renewcommand*{\Authsep}{, }
+%\renewcommand*{\Authand}{ y }
+%\renewcommand*{\Authands}{ y }
+%\renewcommand*{\Authfont}{\normalsize\bfseries}    
+%\renewcommand*{\Affilfont}{\normalsize\normalfont}
+%\setlength{\affilsep}{0.2em}
+%\usepackage{titling}
+%%\vspace{0.5em}
+%%\preauthor{\begin{center}\fontsize{14bp}{14bp}\selectfont}
+%%\postauthor{\par\end{center}\vspace{1em}}
+%\predate{\centering\normalsize\normalfont}
+%\postdate{\par\centering\vspace{-0.2em}}
+%\pretitle{\centering}
+%\posttitle{\par\centering\vspace{-0.2em}}
+
+% Maquetado general, no modificar si no es necesario
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Editar con los datos de identificación
+%\newsavebox\affbox
+
+% Título del Trabajo
+%\title{
+%	\Large\bfseries{Práctica 1\thanks{Docente: Dr. Everardo Efrén Granda Gutiérrez}\\}
+%	\normalfont{Reporte de práctica en \LaTeX, escribir el título de la práctica}
+%	}
+%% Datos del (los) autor (es), colocar en orden alfabético según apellidos
+%\author{Primer Autor Nombre Apellido}
+%\author{Segundo Autor Nombre Apellido}
+%\author{\authorcr Tercer Autor Nombre Apellido}
+%\author{Cuarto Autor Nombre Apellido}
+%
+%\affil{Centro Universitario Atlacomulco, Universidad Autónoma del Estado de México
+%\\Carr. Toluca Atlacomulco Km. 60, Atlacomulco, Estado de México, C.P. 50450, México}
+%%\affil[2]{Otra institución}
+%
+%\date{Fecha de entrega: 23 de febrero de 2023}
+
+
+
+% *******************************************
+% Insertar paquetes adicionales aquí
+%\usepackage[opciones]{paquete}
+
+% Insertar paquetes adicionales aquí
+% ********************************************
+%\usepackage{lscape}
+\usepackage{pdflscape}
+\usepackage{longtable}
+\usepackage{rotating}
+\usepackage{csquotes}
+\MakeOuterQuote{"}
+\usepackage{amssymb}
+\usepackage{graphicx, subfig}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+
+\lstset{style=mystyle}
+
+
+\begin{document}
+
+%\begin{titlepage}
+%\maketitle
+%\end{titlepage}
+
+\include{portada}
+\include{resumen}
+{\setlength{\parskip}{0cm}\tableofcontents}
+
+%\include{instructivo}  % Comentar esta linea en el protocolo que se entrega; solo incluir las secciones propias del formato
+\input{Capitulo 1.tex}
+\input{Capitulo 2.tex}
+\input{Capitulo 3.tex}
+\input{Capitulo 4.tex}
+\input{Capitulo 5.tex}
+\input{Anexos.tex}
+
+
+% con natbib y bibtex
+\bibliography{sources}
+
+% uso con biber
+%\printbibliography[heading=bibintoc, title=Referencias]
+
+%\pagenumbering{arabic}
+%\setcounter{page}{5}
+%\layout
+
+\end{document}
